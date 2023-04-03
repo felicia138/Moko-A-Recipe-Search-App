@@ -106,4 +106,4 @@ async function randomMeal() {
   console.log(data);
 }
 
-searchRecipe('alfredo');
+
