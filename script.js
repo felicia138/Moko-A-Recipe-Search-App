@@ -1,10 +1,4 @@
-const options = {
-  method: 'GET',
-  headers: {
-  	'X-RapidAPI-Key': 'f80a470c6emsh53ef212fefabc98p100ffajsn70d7de6039d4',
-  	'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
-  }
-};
+// put headers here
 
 function printRecipeList(records) {
   for (let rec of records) {
@@ -106,4 +100,4 @@ async function randomMeal() {
   console.log(data);
 }
 
-
+//searchRecipe('alfredo');
