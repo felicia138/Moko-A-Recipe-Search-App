@@ -48,7 +48,8 @@ async function printRecipeDetails(recipe) {
     console.log(step.display_text);  //  displays recipe instructions
 }
 
-async function searchRecipe(searchKey) {
+async function searchRecipe() {
+  let searchKey = document.querySelector('#searchKey').value;
   searchKey = searchKey.replace(' ',"_");
   
   let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=0&size=50');

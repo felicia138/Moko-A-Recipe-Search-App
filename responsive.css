@@ -1,0 +1,44 @@
+@media screen and (max-width: 800px) {
+    
+    .nav-toggler {
+        display: block;
+        position: absolute;
+        right: 5%;
+        z-index: 99999;
+    }
+
+    .navbar {
+        min-height: 60px;
+    }
+    
+    .navbar ul {
+        position: absolute;
+        width: 60%;
+        top: 60px;
+        right: 5%;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fff;
+        max-height: 0;
+        overflow: hidden;
+        transition: .3s;
+        z-index: 99999;
+        box-shadow: 0 0 10px rgb(192, 190, 182);
+    }
+    
+    .navbar ul li {
+        width: 100%;
+        text-align: left;
+        padding-right: 0;
+    }
+
+    .navbar ul li {
+        padding: 25px 25px 0px 25px;
+    }
+
+    .navbar.responsive ul {
+        max-height: 100vh;
+        padding-bottom: 25px;
+        overflow: visible;
+    }
+  }

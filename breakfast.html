@@ -7,33 +7,40 @@
   <title>Recipes Website</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href="responsive.css" rel="stylesheet" type="text/css" />
+  <script src="responsive.js"></script>
 </head>
 
 <body>
-  <section class="menu">
-    <div class="nav">
-      <ul>
-        <li>
-          <div class="logo">
-            <img src="img/food.gif" alt="food gif">
-            logo
-          </div>
-        </li>
-        <li><a href="index.html">Home</a></li>
-        <li><a class="active" href="breakfast.html">Breakfast</a></li>
-        <li><a href="lunch.html">Lunch</a></li>
-        <li><a href="dinner.html">Dinner</a></li>
-        <li><a href="diet.html">Diet</a></li>
-        <li><a href="region.html">Region</a></li>
-        <li><input type="text" placeholder="search" /></li>
-      </ul>
-
-      <div class="menu">
-        <img class="show_hide" src="icons/3 bar black.jpg" alt="Menu bar" hidden="true">
+  <header class="header-area">
+    <div class="container">
+      <div class="logo">
+        <div class="logo-image"><img src="img/food.gif" alt="food gif"></div>
+        <div class="logo-text">logo</div> 
       </div>
-
+      <div class="navbar-area">
+        <nav class="navbar" id="navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="breakfast.html">Breakfast</a></li>
+            <li><a href="lunch.html">Lunch</a></li>
+            <li><a href="dinner.html">Dinner</a></li>
+            <li><a href="diet.html">Diet</a></li>
+            <li><a href="region.html">Region</a></li>
+            <div id="search-bar">
+              <input type="search" id="searchKey" placeholder="search"/>
+              <button class="search" onclick="searchRecipe()"><img src="icons/search-icon.png"></button>
+            </div>
+          </ul>
+          <button class="nav-toggler" onclick="myFunction()"></button>
+        </nav>
+      </div>
     </div>
-  </section>
+  </header>
+
+  <footer>
+
+    <p class="end">Design by <span> Client Cafe</span></p>
+  </footer>
 </body>
 
 </html>

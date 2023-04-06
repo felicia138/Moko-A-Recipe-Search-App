@@ -14,38 +14,54 @@ body {
   background-color: white;
 }
 
-.nav {
+.header-area {
+  overflow: hidden;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 10px;
-  padding-left: 80px;
-  padding-right: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .logo {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  font-weight: 600;
-  font-size: 50px;
-  font-family: 'Poppins', sans-serif;
+  align-items: center; 
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 5px;
+  padding: 0px;
+}
+
+.logo-text {
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .logo img {
   height: 80px;
 }
 
-.nav ul{
+.navbar {
+  display: flex;
+}
+
+.navbar ul {
   display: flex;
   align-items: center;
-  align-content: flex-end;
   justify-content: space-between;
   list-style: none;
+  overflow: hidden;
 }
 
-.nav ul li{
-  padding-right: 30px;
+.navbar ul li {
+  padding-left: 30px;
 }
 
-.nav ul li a{
+.navbar ul li a{
   text-decoration: none;
   font-weight: 500;
   font-family: 'Poppins', sans-serif;
@@ -56,36 +72,55 @@ li:hover {
   font-weight: bold;
 }
 
-.nav ul li .active {
+.navbar ul li .active {
   text-decoration: underline red 3px;
   font-weight: bold;
   display: flex;
   position: relative;
 }
 
-.nav .menu{
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-}
-
-.nav .menu img{
-  width: 100%;
+#search-bar {
+  padding-left: 30px;
+  display: grid;
+  align-items: center; 
+  grid-template-columns: 1fr 1fr;
 }
 
 input {
+  text-align: center;
   padding: 6px;
   border: none;
-  
-  margin-right: 16px;
   font-size: 17px;
 }
 
+.search {
+  border: none;
+  background-color: transparent;
+}
+
+.search img {
+  padding-left: 0;
+  height: 20px;
+  cursor: pointer;
+}
+
+.nav-toggler {
+  border: none;
+  background-color: transparent;
+  background-image: url(icons/menu.png);
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  display: none;
+  cursor: pointer;
+}
+
 #banner {
+  width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 80px;
-  padding-right: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
   background-image: url(img/banner-background.jpg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -180,7 +215,7 @@ input {
 grid-template-columns: repeat(4, 1fr);
 }
 
-.category .card-list . card{
+.category .card-list .card{
   width: 200px;
   height: auto;
   display: block;
@@ -191,7 +226,7 @@ grid-template-columns: repeat(4, 1fr);
   outline: 2px solid #faad96;
 }
 
-  .category .card-list . card img{
+  .category .card-list .card img{
     width: 100px;
     height: auto;
     bottom: 140px;
@@ -204,11 +239,11 @@ grid-template-columns: repeat(4, 1fr);
     border-radius: 50%;
   }
 
-.category . card-list .food-title{
+.category .card-list .food-title{
   padding: 40px 0 10px;
 }
 
-.category . card-list .card . food-title h1{
+.category .card-list .card .food-title h1{
   text-align: center;
   font-weight:bold;
   font-size: 16px;
