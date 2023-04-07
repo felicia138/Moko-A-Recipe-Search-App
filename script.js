@@ -776,9 +776,8 @@ const results = [
 let state = [];
 state = results;
 
-let breakfast = document.querySelector("#breakfast-link");
-
-breakfast.addEventListener("click", printRecipeList(results));
+let myBtn = document.querySelector("#breakfast-link");
+myBtn.addEventListener("click", printRecipeList(results));
 
 function printRecipeList(records) {
   let result = document.querySelector('#pasta-recipes');
@@ -811,9 +810,9 @@ function printRecipeList(records) {
 }
 
 async function printRecipeDetails(recipe) {
-  let recipe = document.querySelector("#recipeContainer");
-
-  html = '';
+  let result = document.querySelector('#recipe-result');
+  console.log(result);
+  let html = '';
   html += `
   <div class="contentContainerColumn1">
       <div class="recipeImage"><img src="${recipe.thumbnail_url}"></div>
@@ -834,21 +833,32 @@ async function printRecipeDetails(recipe) {
   let count = 0;
   
   for (let item of list) {
-    if (item.name != null)
-      html += `<h3>${item.name}</h3>`  //  displays ingredients section name
-    
+    if (item.name != null) //  displays ingredients section name
+      html += `
+      <h3>${item.name}</h3>
+        <ul>`;
+
     for (let ingredient of item.components) { 
-      console.log(ingredient.raw_text);  //  displays ingredient and quantity
       count++;  //  counts number of ingredients
+      html += `
+      <li>${ingredient.raw_text}</li>
+      `;
     }
+    html+= `</ul>`;
   }
-  console.log(count);  //  displays number of ingredients
-  
+  html += `
+  </div>
+  <div class="recipeDietTags">
+    <h3>Diet: </h3>
+      <ul class="tags">
+  `;
+
   let tagList = recipe.tags;
   //  displays relevant tags
   for (let tag of tagList) {
-    if(tag.type === "dietary")
-      console.log(tag.display_name);
+    if(tag.type === "dietary") {
+      html += `<li>${tag.display_name}</li>`;  
+    }
     if(tag.type === "holiday" || tag.type === "occasion" || tag.type === "meal")
       console.log(tag.display_name);
     if(tag.type === "difficulty")
@@ -856,15 +866,33 @@ async function printRecipeDetails(recipe) {
     if(tag.type === "cuisine")
       console.log(tag.display_name);
   }
-  //  displays description
-  if (recipe.description === "")
-    console.log("No Description Available");
-  else
-    console.log(recipe.description);
-  
+
+  html += `</ul>
+      </div>
+    </div>
+    <div class="contentContainerColumn2">
+      <div class="recipeDescription">
+        <h2 class="description-heading">Decription</h2>`;
+
+
+  if (recipe.description === "") {
+    html += `<p class="description-details">No Decription Available</p></div>`;
+  }
+  else {
+    html += `<p class="description-details">${recipe.description}</p>
+    </div>
+    <div class="recipeInstructions">
+        <h2 class="instruction-heading">Instructions</h2>
+        <ul class="instruction-details">`;
+  }
+
   let instructions = recipe.instructions;
-  for (let step of instructions)
-    console.log(step.display_text);  //  displays recipe instructions
+  for (let step of instructions) {
+    html += `<li>${step.display_text}</li>`;
+  }
+  html += `</ul></div>`;
+
+  result.innerHTML = html;
 }
 
 async function searchRecipe() {
@@ -920,3 +948,5 @@ async function randomMeal() {
   const data = await response.json();
   console.log(data);
 }
+
+printRecipeDetails(results[0]);
