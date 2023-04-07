@@ -41,4 +41,9 @@
         padding-bottom: 25px;
         overflow: visible;
     }
+
+    #recipeContainer {
+        display: flex;
+        flex-direction: column;
+    }
   }

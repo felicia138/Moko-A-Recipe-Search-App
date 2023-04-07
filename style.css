@@ -16,7 +16,6 @@ body {
 
 .header-area {
   background-color: white;
-  overflow: hidden;
   width: 100%;
 }
 
@@ -62,22 +61,20 @@ body {
   padding-left: 30px;
 }
 
-.navbar ul li a{
+.navbar ul li a {
   text-decoration: none;
-  font-weight: 500;
+  font-weight: normal;
   font-family: 'Poppins', sans-serif;
   font-size: 17px;
 }
 
-li:hover {
+.navbar ul li a:hover {
   font-weight: bold;
 }
 
 .navbar ul li .active {
   text-decoration: underline red 3px;
   font-weight: bold;
-  display: flex;
-  position: relative;
 }
 
 #search-bar {
@@ -372,4 +369,126 @@ main {
 
 .img_responsive {
   max-width: 100%;
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: bold;
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+p {
+  font-size: 17px;
+  font-weight: normal;
+  text-align: justify;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#recipeContainer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: grid;
+  grid-template-columns: 30vw 70vw;
+  grid-template-rows: 1fr;
+  column-gap: 100px;
+}
+
+.contentContainerColumn1 {
+  padding: 10px;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  text-align: center;
+  justify-content:center;
+}
+
+.recipeImage img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.recipeName {
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.details * {
+  text-align: center;
+}
+
+.recipeIngredientList * {
+  text-align: left;
+}
+
+.recipeIngredientList li {
+  list-style: none;
+  font-size: 17px;
+  padding-top: 5px;
+}
+
+.recipeDietTags {
+  text-align: left;
+}
+
+.recipeHealthTags {
+  text-align: left;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+}
+
+.tags li {
+  font-size: 15px;
+  font-weight: bold;
+  color: #363636;
+  width: fit-content;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: fit-content;
+  text-align: center;
+  border-radius: 10px;
+  text-transform: lowercase;
+}
+
+.recipeDietTags li {
+  border: 2px solid rgb(240, 0, 0);
+}
+
+.recipeHealthTags li {
+  border: 2px solid green;
+}
+
+.contentContainerColumn2{
+  grid-column-start: 2;
+}
+
+.contentContainerColumn2 .recipeInstructionsTitle{
+  font-size: 40px;
+  font-weight: 600;
 }

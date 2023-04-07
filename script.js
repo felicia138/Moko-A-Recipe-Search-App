@@ -1,5 +1,10 @@
-// put headers here
-
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'f80a470c6emsh53ef212fefabc98p100ffajsn70d7de6039d4',
+		'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+	}
+};
 
 const results = [
   {
@@ -768,9 +773,12 @@ const results = [
   }
 ];
 
-let myBtn = document.querySelector("#breakfast-link");
+let state = [];
+state = results;
 
-myBtn.addEventListener("click", printRecipeList(results));
+let breakfast = document.querySelector("#breakfast-link");
+
+breakfast.addEventListener("click", printRecipeList(results));
 
 function printRecipeList(records) {
   let result = document.querySelector('#pasta-recipes');
@@ -790,7 +798,7 @@ function printRecipeList(records) {
             <h3>${records[0].name}</h3>
             <p>Prep: ${records[0].prep_time_minutes} minutes</p>
             <p>Cook: ${records[0].cook_time_minutes} minutes</p>
-            <a class="read-more" href="recipe.html" onclick="printRecipeDetails(records[0])">view</a>
+            <a class="read-more" href="presentRecipe.html">view</a>
           </div>
         </div>
       </div>
@@ -803,15 +811,31 @@ function printRecipeList(records) {
 }
 
 async function printRecipeDetails(recipe) {
-  console.log(recipe.thumbnail_url);
-  console.log(recipe.name);  //  recipe name
-  console.log(recipe.num_servings);  //  servings
+  let recipe = document.querySelector("#recipeContainer");
+
+  html = '';
+  html += `
+  <div class="contentContainerColumn1">
+      <div class="recipeImage"><img src="${recipe.thumbnail_url}"></div>
+      <div class="recipeName"><h1>${recipe.name}</h1></div>
+      
+      <div class="details">
+        <p>Servings: ${recipe.num_servings}</p>
+        <p>Prep: ${recipe.prep_time_minutes}</p>
+        <p>Cook: ${recipe.cook_time_minutes}</p>
+        <p id="ingredient-count">Ingredient: </p>
+      </div>
+      
+      <div class="recipeIngredientList">
+        <h2>Ingredients</h2>
+  `;
+  
   let list = recipe.sections;
   let count = 0;
   
   for (let item of list) {
     if (item.name != null)
-      console.log(item.name);  //  displays ingredients section name
+      html += `<h3>${item.name}</h3>`  //  displays ingredients section name
     
     for (let ingredient of item.components) { 
       console.log(ingredient.raw_text);  //  displays ingredient and quantity
@@ -852,7 +876,8 @@ async function searchRecipe() {
   
   const response = await fetch(url, options);
   const data = await response.json();
-  printRecipeDetails(data.results[0]);
+  state = data.results;
+  return state;
 }
 
 async function filterByCategory(category) {
@@ -895,5 +920,3 @@ async function randomMeal() {
   const data = await response.json();
   console.log(data);
 }
-
-printRecipeDetails(results[0]);
