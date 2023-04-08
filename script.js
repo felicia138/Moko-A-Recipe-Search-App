@@ -1,10 +1,10 @@
-// const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		'X-RapidAPI-Key': ${{API_ACCESS_KEY}},
-// 		'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
-// 	}
-// };
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': config.api_key,
+		'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+	}
+};
 
 const results = [
   {
