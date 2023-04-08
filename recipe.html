@@ -7,7 +7,6 @@
   <title>Recipes Website</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href="responsive.css" rel="stylesheet" type="text/css" />
-  <script src="responsive.js"></script>
 </head>
 
 <body>
@@ -21,7 +20,7 @@
         <nav class="navbar" id="navigation">
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="breakfast.html">Breakfast</a></li>
+            <li><a id="breakfast-link" href="breakfast.html">Breakfast</a></li>
             <li><a href="lunch.html">Lunch</a></li>
             <li><a href="dinner.html">Dinner</a></li>
             <li><a href="diet.html">Diet</a></li>
@@ -37,10 +36,19 @@
     </div>
   </header>
 
+  <main>
+    <section id="recipe-container" onload="printRecipeDetails()">
+
+    </section>
+  </main>
+
   <footer>
 
     <p class="end">Design by <span> Client Cafe</span></p>
   </footer>
+  
+  <script src="script.js"></script>
+  <script src="responsive.js"></script>
 </body>
 
 </html>

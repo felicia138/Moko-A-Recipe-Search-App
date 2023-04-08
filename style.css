@@ -9,6 +9,38 @@
  scroll-behavior: smooth;
 }
 
+h1 {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: bold;
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+p {
+  font-size: 17px;
+  font-weight: normal;
+  text-align: justify;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 body {
   margin: 0;
   background-color: white;
@@ -149,18 +181,22 @@ input {
 .content .info h1 {
   color: white;
   font-size: 80px;
+  text-align: left;
+  padding: 0;
 }
 
 .content .info h2 {
   color: white;
   font-size: 20px;
   line-height: 2pc;
+  padding: 0;
 }
 
 .content .info p {
   color: white;
   font-size: 17px;
   line-height: 2pc;
+  padding: 0;
 }
 
 .content a {
@@ -371,39 +407,28 @@ main {
   max-width: 100%;
 }
 
-h1 {
-  font-size: 25px;
+#recipe-details {
+  display: block;
+  position: fixed;
+  background-color: white;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
   font-weight: bold;
-  text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
 }
 
-h2 {
-  font-size: 20px;
-  font-weight: bold;
-  text-align: left;
-  padding-top: 5px;
-  padding-bottom: 5px;
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-h3 {
-  font-size: 17px;
-  font-weight: bold;
-  text-align: left;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-p {
-  font-size: 17px;
-  font-weight: normal;
-  text-align: justify;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-#recipeContainer {
+#recipe-container {
   padding-top: 20px;
   padding-bottom: 20px;
   margin-left: 5%;

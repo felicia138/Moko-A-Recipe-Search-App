@@ -777,10 +777,10 @@ let state = [];
 state = results;
 
 let myBtn = document.querySelector("#breakfast-link");
-myBtn.addEventListener("click", printRecipeList(results));
+myBtn.addEventListener('click', printRecipeList(results));
 
 function printRecipeList(records) {
-  let result = document.querySelector('#pasta-recipes');
+  let result = document.querySelector("#pasta-recipes");
   
   let html='';
   for (row = 0; row < 5; row++){
@@ -797,7 +797,7 @@ function printRecipeList(records) {
             <h3>${records[0].name}</h3>
             <p>Prep: ${records[0].prep_time_minutes} minutes</p>
             <p>Cook: ${records[0].cook_time_minutes} minutes</p>
-            <a class="read-more" href="presentRecipe.html">view</a>
+            <button id="read-more">view</button>
           </div>
         </div>
       </div>
@@ -809,9 +809,13 @@ function printRecipeList(records) {
   result.innerHTML = html;
 }
 
-async function printRecipeDetails(recipe) {
-  let result = document.querySelector('#recipe-result');
-  console.log(result);
+const  result = document.getElementById('recipe-details');
+result.addEventListener('click', printRecipeDetails());
+
+async function printRecipeDetails() {
+  
+  let recipe = results[0];
+  
   let html = '';
   html += `
   <div class="contentContainerColumn1">
@@ -949,4 +953,27 @@ async function randomMeal() {
   console.log(data);
 }
 
-printRecipeDetails(results[0]);
+let details = document.getElementById("recipe-details");
+
+// Get the button that opens the modal
+let btn = document.getElementById("read-more");
+
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  details.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  details.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == details) {
+    details.style.display = "none";
+  }
+}

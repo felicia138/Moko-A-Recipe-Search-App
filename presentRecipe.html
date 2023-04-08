@@ -1,53 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Recipes Website</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <link href="responsive.css" rel="stylesheet" type="text/css" />
-  <script src="responsive.js"></script>
-  <link href="presentRecipeStyle.css" rel="stylesheet" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+#recipe-details {
+  display: block;
+  position: fixed;
+  background-color: white;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#recipe-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: grid;
+  grid-template-columns: 30vw 70vw;
+  grid-template-rows: 1fr;
+  column-gap: 100px;
+}
+
+.contentContainerColumn1 {
+  padding: 10px;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  text-align: center;
+  justify-content:center;
+}
+
+.recipeImage img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.recipeName {
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.details * {
+  text-align: center;
+}
+
+.recipeIngredientList * {
+  text-align: left;
+}
+
+.recipeIngredientList li {
+  list-style: none;
+  font-size: 17px;
+  padding-top: 5px;
+}
+
+.recipeDietTags {
+  text-align: left;
+}
+
+.recipeHealthTags {
+  text-align: left;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+}
+
+.tags li {
+  font-size: 15px;
+  font-weight: bold;
+  color: #363636;
+  width: fit-content;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: fit-content;
+  text-align: center;
+  border-radius: 10px;
+  text-transform: lowercase;
+}
+
+.recipeDietTags li {
+  border: 2px solid rgb(240, 0, 0);
+}
+
+.recipeHealthTags li {
+  border: 2px solid green;
+}
+
+.contentContainerColumn2{
+  grid-column-start: 2;
+}
+
+.contentContainerColumn2 .recipeInstructionsTitle{
+  font-size: 40px;
+  font-weight: 600;
+}
+
+</style>
 </head>
-
 <body>
-  <header class="header-area">
-    <div class="container">
-      <div class="logo">
-        <div class="logo-image"><img src="img/food.gif" alt="food gif"></div>
-        <div class="logo-text">logo</div> 
-      </div>
-      <div class="navbar-area">
-        <nav class="navbar" id="navigation">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a id="breakfast-link" href="breakfast.html">Breakfast</a></li>
-            <li><a href="lunch.html">Lunch</a></li>
-            <li><a href="dinner.html">Dinner</a></li>
-            <li><a href="diet.html">Diet</a></li>
-            <li><a href="region.html">Region</a></li>
-            <div id="search-bar">
-              <input type="search" id="searchKey" placeholder="search"/>
-              <button class="search" onclick="searchRecipe()"><img src="icons/search-icon.png"></button>
-            </div>
-          </ul>
-          <button class="nav-toggler" onclick="myFunction()"></button>
-        </nav>
-      </div>
-    </div>
-  </header>
+
+  <main id="recipe-details">
+    <section id="recipe-container">
+      <span class="close">&times;</span>
+      <div class="contentContainerColumn1">
+        <div class="recipeImage"><img src="https://media.istockphoto.com/id/1395140920/photo/peach-blueberry-and-arugula-fresh-fruit-salad-with-cheese-and-almond-nuts-top-view.jpg?s=2048x2048&w=is&k=20&c=86_OOuiR6wRVqD1Qf7dV-XP7XHVaahhK_af5k6aRedU="  alt="Foodimage"  ></div>
+        <div class="recipeName"><h1>Title</h1></div>
   
-  <section id="recipe-result">
-    
-  </section>
-    
-  <footer>
-    <p class="end">Design by <span> Client Cafe</span></p>
-  </footer>
+        <div class="details">
+          <p>Servings: </p>
+          <p>Prep: </p>
+          <p>Cook: </p>
+          <p>Level: </p>
+          <p>Ingredient: </p>
+        </div>
+  
+        <div class="recipeIngredientList">
+          <h2>Ingredients</h2>
+          <ul>
+            <li>Ingredient 1</li>
+            <li>Ingredient 2</li>
+            <li>Ingredient 3</li>
+            <li>Ingredient 4</li>
+            <li>Ingredient 5</li>
+            <li>Ingredient 6</li>
+          </ul>
+        </div>
+  
+        <div class="recipeDietTags">
+          <h3>Diet: </h3>
+            <ul class="tags">
+                <li>Tag1</li>
+                <li>Tag1</li>
+                <li>Tag1</li>
+                <li>Tag1</li>
+            </ul>
+        </div>
+  
+        <div class="recipeHealthTags">
+            <h3>Health: </h3>
+            <ul class="tags">
+              <li>Tag1</li>
+              <li>Tag1</li>
+              <li>Tag1</li>
+              <li>Tag1</li>
+            </ul>
+        </div>
+      </div>
+    <section id="recipe-result">
+  
+      <div class="contentContainerColumn2">
+  
+        <div class="recipeDescription">
+          <h2 class="description-heading">Decription</h2>
+          <p class="description-details">decription here</p>
+        </div>
+  
+        <div class="recipeInstructions">
+          <h2 class="instruction-heading">Instructions</h2>
+          <ul class="instruction-details">
+            <li>instrucion 3</li>
+          </ul>
+        </div>
+  
+      </div>
+    </section>
+  </main>
 
-  <script src="script.js"></script>
-  <script src="responsive.js"></script>
+<button id="myBtn">Open Modal</button>
+
+<script>
+
+var modal = document.getElementById("recipe-details");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
 </body>
-
 </html>
