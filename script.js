@@ -145,8 +145,9 @@ async function printRecipeDetails() {
   result.innerHTML = html;
 }
 
-async function searchRecipe() {
-  let searchKey = document.querySelector('#searchKey').value;
+// let searchKey = document.querySelector('#searchKey').value;
+
+async function searchRecipe(searchKey) {
   searchKey = searchKey.replace(' ',"_");
   
   let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=0&size=50');
@@ -155,11 +156,11 @@ async function searchRecipe() {
   const response = await fetch(url, options);
   const data = await response.json();
   console.log(data);
-  return data;
+  return data.results;
 }
 
-async function showAllSearch () {
-  state = await searchRecipe();
+async function showAll (key) {
+  state = await searchRecipe(key);
   printRecipeList(state);
 }
 
@@ -208,32 +209,30 @@ async function randomMeal() {
   const data = await response.json();
   console.log(data);
 }
-// let list = document.getElementById("pasta-recipes")
-// let details = document.getElementById("recipe-details");
+let list = document.getElementById("pasta-recipes")
+let details = document.getElementById("recipe-details");
 
-// // Get the button that opens the modal
-// let btn = document.getElementById("read-more");
+// Get the button that opens the modal
+let btn = document.getElementById("read-more");
 
-// // Get the <span> element that closes the modal
-// let span = document.getElementsByClassName("close")[0];
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
 
-// // When the user clicks the button, open the modal 
-// btn.onclick = function() {
-//   details.style.display = "block";
-//   $(list).hide(1);
-// }
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  details.style.display = "block";
+  $(list).hide(1);
+}
 
-// // When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//   details.style.display = "none";
-// }
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  details.style.display = "none";
+}
 
-// // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//   if (event.target == details) {
-//     details.style.display = "none";
-//     $(list).show(1);
-//   }
-// }
-
-console.log(state);
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == details) {
+    details.style.display = "none";
+    $(list).show(1);
+  }
+}
