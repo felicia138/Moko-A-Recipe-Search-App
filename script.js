@@ -1,3 +1,11 @@
+// const options = {
+// 	method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Key': ${{API_ACCESS_KEY}},
+// 		'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+// 	}
+// };
+
 const results = [
   {
     "is_one_top": false,
