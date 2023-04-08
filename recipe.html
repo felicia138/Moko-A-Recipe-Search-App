@@ -7,6 +7,7 @@
   <title>Recipes Website</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href="responsive.css" rel="stylesheet" type="text/css" />
+  <script src="responsive.js"></script>
 </head>
 
 <body>
@@ -21,7 +22,7 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a id="breakfast-link" href="breakfast.html">Breakfast</a></li>
-            <li><a href="lunch.html">Lunch</a></li>
+            <li><a class="active" href="lunch.html">Lunch</a></li>
             <li><a href="dinner.html">Dinner</a></li>
             <li><a href="diet.html">Diet</a></li>
             <li><a href="region.html">Region</a></li>
@@ -37,9 +38,625 @@
   </header>
 
   <main>
-    <section id="recipe-container" onload="printRecipeDetails()">
-
+    <section class="grid" id="banner">
+      <div class="content">
+          <div class="info">
+            <h1>Lettuce <br>Eat !</h1>
+            <h2>Food may be essential as fuel for the body, but good food is fuel for the soul - Malcom Forbes</h2>
+            <p>Set out on your next kitchen adventure !</p>
+          </div>
+          <a href="#cake-section" id="browse">Browse</a>
+        </div>
     </section>
+
+    <section id="pasta-recipes">
+      <div class="flex-row">
+      
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/432886.jpg" alt="Chocolate Chip Cookie Dough Blended Oats">
+        </figure>
+         <div class="recipe-details">
+          <h3>Chocolate Chip Cookie Dough Blended Oats</h3>
+          <p>Prep: 5 minutes</p>
+          <p>Cook: 20 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/431345.jpg" alt="Savory French Toast">
+        </figure>
+         <div class="recipe-details">
+          <h3>Savory French Toast</h3>
+          <p>Prep: 10 minutes</p>
+          <p>Cook: 25 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/431321.jpg" alt="Honey Butter Cereal">
+        </figure>
+         <div class="recipe-details">
+          <h3>Honey Butter Cereal</h3>
+          <p>Prep: 25 minutes</p>
+          <p>Cook: 15 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/427507.jpg" alt="Eggs In A Baguette">
+        </figure>
+         <div class="recipe-details">
+          <h3>Eggs In A Baguette</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+      </div>
+      
+      <div class="flex-row">
+      
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/423476.jpg" alt="Sticky Oatmeal">
+        </figure>
+         <div class="recipe-details">
+          <h3>Sticky Oatmeal</h3>
+          <p>Prep: 5 minutes</p>
+          <p>Cook: 10 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/ceaced4fc4414a01badda35ef34726fc.jpeg" alt="Tembleque Vegan Pudding">
+        </figure>
+         <div class="recipe-details">
+          <h3>Tembleque Vegan Pudding</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/411315.jpg" alt="Pancake Batter Cones">
+        </figure>
+         <div class="recipe-details">
+          <h3>Pancake Batter Cones</h3>
+          <p>Prep: 15 minutes</p>
+          <p>Cook: 15 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/412567.jpg" alt="Crunchy Hash Brown Breakfast Wrap">
+        </figure>
+         <div class="recipe-details">
+          <h3>Crunchy Hash Brown Breakfast Wrap</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+      </div>
+      
+      <div class="flex-row">
+      
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/412559.jpg" alt="Holiday Hash Brown Waffles">
+        </figure>
+         <div class="recipe-details">
+          <h3>Holiday Hash Brown Waffles</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/TN03.jpeg" alt="5 Make-Ahead Morning Snacks Because You&#39;re Always Running Late">
+        </figure>
+         <div class="recipe-details">
+          <h3>5 Make-Ahead Morning Snacks Because You're Always Running Late</h3>
+          <p>Prep: undefined minutes</p>
+          <p>Cook: undefined minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/405972.jpg" alt="Caramel Apple Pie French Toast">
+        </figure>
+         <div class="recipe-details">
+          <h3>Caramel Apple Pie French Toast</h3>
+          <p>Prep: 60 minutes</p>
+          <p>Cook: 5 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/Thumbnailfinal.jpg" alt="Guatemalan Desayuno Chapin">
+        </figure>
+         <div class="recipe-details">
+          <h3>Guatemalan Desayuno Chapin</h3>
+          <p>Prep: 15 minutes</p>
+          <p>Cook: 20 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+      </div>
+      
+      <div class="flex-row">
+      
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/399284.jpg" alt="Honduran Baleadas">
+        </figure>
+         <div class="recipe-details">
+          <h3>Honduran Baleadas</h3>
+          <p>Prep: 35 minutes</p>
+          <p>Cook: 10 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/1f31e5230bdd47e483248ad516d39cfb.jpeg" alt="Hotel Effie’s Southern Biscuits">
+        </figure>
+         <div class="recipe-details">
+          <h3>Hotel Effie’s Southern Biscuits</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/397220.jpg" alt="Back-To-School Sheet Pan Pancake">
+        </figure>
+         <div class="recipe-details">
+          <h3>Back-To-School Sheet Pan Pancake</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/390091.jpg" alt="Team Pancakes or Team Waffles?">
+        </figure>
+         <div class="recipe-details">
+          <h3>Team Pancakes or Team Waffles?</h3>
+          <p>Prep: undefined minutes</p>
+          <p>Cook: undefined minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+      </div>
+      
+      <div class="flex-row">
+      
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/1629438374994236ae9c5c2aa5a7668f.jpeg" alt="PB &amp; J Overnight Oats With Magic Shell">
+        </figure>
+         <div class="recipe-details">
+          <h3>PB &amp; J Overnight Oats With Magic Shell</h3>
+          <p>Prep: 10 minutes</p>
+          <p>Cook: 0 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/b56eec1b94b14b408331378c58201d5e.jpeg" alt="Protein Oatmeal">
+        </figure>
+         <div class="recipe-details">
+          <h3>Protein Oatmeal</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/1906378ec8e946d8be034e3273c62a1b.jpeg" alt="Croissant Breakfast Pizza">
+        </figure>
+         <div class="recipe-details">
+          <h3>Croissant Breakfast Pizza</h3>
+          <p>Prep: 10 minutes</p>
+          <p>Cook: 40 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/e5c9d75942394a1bb3388352baad7180.jpeg" alt="Cast Iron Breakfast Pizza">
+        </figure>
+         <div class="recipe-details">
+          <h3>Cast Iron Breakfast Pizza</h3>
+          <p>Prep: 10 minutes</p>
+          <p>Cook: 35 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+      </div>
+      
+      <div class="flex-row">
+      
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/BFV42329_TastyMealPlanrecipe1_FB_V2.jpg" alt="Greek Yogurt Green Smoothie">
+        </figure>
+         <div class="recipe-details">
+          <h3>Greek Yogurt Green Smoothie</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/387710.jpg" alt="Quick Weekday Breakfasts For When You Hit The Snooze Button">
+        </figure>
+         <div class="recipe-details">
+          <h3>Quick Weekday Breakfasts For When You Hit The Snooze Button</h3>
+          <p>Prep: undefined minutes</p>
+          <p>Cook: undefined minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/501bc8f58e1945b2a1fe32d99e5e2a37.jpeg" alt="Buttermilk Banana Pancakes">
+        </figure>
+         <div class="recipe-details">
+          <h3>Buttermilk Banana Pancakes</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/380128.jpg" alt="Pancakes 101">
+        </figure>
+         <div class="recipe-details">
+          <h3>Pancakes 101</h3>
+          <p>Prep: undefined minutes</p>
+          <p>Cook: undefined minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+      </div>
+      
+      <div class="flex-row">
+      
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/35d4735861ac471eae755b825f17ce79.jpeg" alt="Omelet With Salmon &amp; Cream Cheese">
+        </figure>
+         <div class="recipe-details">
+          <h3>Omelet With Salmon &amp; Cream Cheese</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/379415.jpg" alt="7 Days 7 Omelets">
+        </figure>
+         <div class="recipe-details">
+          <h3>7 Days 7 Omelets</h3>
+          <p>Prep: undefined minutes</p>
+          <p>Cook: undefined minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/1d29eb676d864c8c9010f4f5ab68baee.jpeg" alt="Homemade Oatmeal">
+        </figure>
+         <div class="recipe-details">
+          <h3>Homemade Oatmeal</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/PlanetOat_SmoothieBowls3Ways_BFV90538_SQHero.jpg" alt="Berry Beet Bowl">
+        </figure>
+         <div class="recipe-details">
+          <h3>Berry Beet Bowl</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+      </div>
+      
+      <div class="flex-row">
+      
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/cd11a805e46e43d08a73e024e8a89254.jpeg" alt="Styled Bagel">
+        </figure>
+         <div class="recipe-details">
+          <h3>Styled Bagel</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/HASHBROWNINSTA1.jpg" alt="Cheese-Stuffed Hash Browns">
+        </figure>
+         <div class="recipe-details">
+          <h3>Cheese-Stuffed Hash Browns</h3>
+          <p>Prep: 20 minutes</p>
+          <p>Cook: 15 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/373736.jpg" alt="Hotteok (Korean Sweet Pancakes)">
+        </figure>
+         <div class="recipe-details">
+          <h3>Hotteok (Korean Sweet Pancakes)</h3>
+          <p>Prep: 20 minutes</p>
+          <p>Cook: 20 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/HamAndCheeseBreakfastRolls.jpeg" alt="Savory Ham And Cheese Breakfast Rolls">
+        </figure>
+         <div class="recipe-details">
+          <h3>Savory Ham And Cheese Breakfast Rolls</h3>
+          <p>Prep: 10 minutes</p>
+          <p>Cook: 25 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+      </div>
+      
+      <div class="flex-row">
+      
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/CinnamonToastCrunchBakedOats.jpeg" alt="Cinnamon Toast Crunch Baked Oats">
+        </figure>
+         <div class="recipe-details">
+          <h3>Cinnamon Toast Crunch Baked Oats</h3>
+          <p>Prep: 5 minutes</p>
+          <p>Cook: 15 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/08071e969c7a4d308de714cd9b4e1a8d.jpeg" alt="Citrus Espresso Custard Toast">
+        </figure>
+         <div class="recipe-details">
+          <h3>Citrus Espresso Custard Toast</h3>
+          <p>Prep: 10 minutes</p>
+          <p>Cook: 5 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/341495.jpg" alt="How To Make Classic French Toast">
+        </figure>
+         <div class="recipe-details">
+          <h3>How To Make Classic French Toast</h3>
+          <p>Prep: 5 minutes</p>
+          <p>Cook: 10 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/360217.jpg" alt="Pancake And Waffle Cereal">
+        </figure>
+         <div class="recipe-details">
+          <h3>Pancake And Waffle Cereal</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+      </div>
+      
+      <div class="flex-row">
+      
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/360213.jpg" alt="Griddle Stackers">
+        </figure>
+         <div class="recipe-details">
+          <h3>Griddle Stackers</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/b60280faac3745be8a66bdc12c0757d1.jpeg" alt="Strawberry Cream Cheese Stuffed French Toast">
+        </figure>
+         <div class="recipe-details">
+          <h3>Strawberry Cream Cheese Stuffed French Toast</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/0d1431b7b8b049afbc6e094a0039fc82.jpeg" alt="Nutella &amp; Banana Brioche French Toast">
+        </figure>
+         <div class="recipe-details">
+          <h3>Nutella &amp; Banana Brioche French Toast</h3>
+          <p>Prep: null minutes</p>
+          <p>Cook: null minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="pasta-recipe">
+        <figure>
+          <img src="./Recipes Website_files/324087.jpg" alt="Boba Pancakes With Milk Tea Cream">
+        </figure>
+         <div class="recipe-details">
+          <h3>Boba Pancakes With Milk Tea Cream</h3>
+          <p>Prep: 20 minutes</p>
+          <p>Cook: 50 minutes</p>
+          <button id="read-more">view</button>
+        </div>
+      </div>
+    </div>
+    
+      </div>
+      </section>
+
+    <div id="recipe-details">
+      <span class="close">×</span>
+      <div id="recipe-container">
+
+      </div>
+    </div>
   </main>
 
   <footer>
@@ -47,6 +664,11 @@
     <p class="end">Design by <span> Client Cafe</span></p>
   </footer>
   
+  <footer>
+
+    <p class="end">Design by <span> Client Cafe</span></p>
+  </footer>
+
   <script src="script.js"></script>
   <script src="responsive.js"></script>
 </body>
