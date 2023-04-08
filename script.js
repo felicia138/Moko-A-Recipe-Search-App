@@ -809,7 +809,7 @@ function printRecipeList(records) {
   result.innerHTML = html;
 }
 
-const  result = document.getElementById('recipe-details');
+const  result = document.getElementById('recipe-container');
 result.addEventListener('click', printRecipeDetails());
 
 async function printRecipeDetails() {
@@ -817,7 +817,8 @@ async function printRecipeDetails() {
   let recipe = results[0];
   
   let html = '';
-  html += `
+  html += 
+  `
   <div class="contentContainerColumn1">
       <div class="recipeImage"><img src="${recipe.thumbnail_url}"></div>
       <div class="recipeName"><h1>${recipe.name}</h1></div>
@@ -826,7 +827,7 @@ async function printRecipeDetails() {
         <p>Servings: ${recipe.num_servings}</p>
         <p>Prep: ${recipe.prep_time_minutes}</p>
         <p>Cook: ${recipe.cook_time_minutes}</p>
-        <p id="ingredient-count">Ingredient: </p>
+        <p id="ingredient-count">Ingredients: </p>
       </div>
       
       <div class="recipeIngredientList">
@@ -838,9 +839,11 @@ async function printRecipeDetails() {
   
   for (let item of list) {
     if (item.name != null) //  displays ingredients section name
-      html += `
+      html += 
+      `
       <h3>${item.name}</h3>
-        <ul>`;
+      <ul>
+      `;
 
     for (let ingredient of item.components) { 
       count++;  //  counts number of ingredients
@@ -894,7 +897,11 @@ async function printRecipeDetails() {
   for (let step of instructions) {
     html += `<li>${step.display_text}</li>`;
   }
-  html += `</ul></div>`;
+  html += 
+  `
+  </ul>
+  </div>
+  `;
 
   result.innerHTML = html;
 }
@@ -952,7 +959,7 @@ async function randomMeal() {
   const data = await response.json();
   console.log(data);
 }
-
+let list = document.getElementById("pasta-recipes")
 let details = document.getElementById("recipe-details");
 
 // Get the button that opens the modal
@@ -964,6 +971,7 @@ let span = document.getElementsByClassName("close")[0];
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
   details.style.display = "block";
+  $(list).hide(1);
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -975,5 +983,6 @@ span.onclick = function() {
 window.onclick = function(event) {
   if (event.target == details) {
     details.style.display = "none";
+    $(list).show(1);
   }
 }

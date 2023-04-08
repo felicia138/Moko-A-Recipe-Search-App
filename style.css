@@ -408,17 +408,22 @@ main {
 }
 
 #recipe-details {
-  display: block;
-  position: fixed;
+  display: none;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  width: 100vw;
   background-color: white;
 }
 
 /* The Close Button */
 .close {
   color: #aaaaaa;
-  float: right;
+  float: left;
   font-size: 28px;
   font-weight: bold;
+  padding: 10px;
 }
 
 .close:hover,
@@ -434,7 +439,7 @@ main {
   margin-left: 5%;
   margin-right: 5%;
   display: grid;
-  grid-template-columns: 30vw 70vw;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
   column-gap: 100px;
 }
@@ -509,11 +514,17 @@ main {
   border: 2px solid green;
 }
 
-.contentContainerColumn2{
+.contentContainerColumn2 {
   grid-column-start: 2;
 }
 
-.contentContainerColumn2 .recipeInstructionsTitle{
-  font-size: 40px;
-  font-weight: 600;
+.contentContainerColumn2 ul {
+  list-style: none;
+}
+
+.contentContainerColumn2 ul li {
+  list-style: none;
+  text-align: justify;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
