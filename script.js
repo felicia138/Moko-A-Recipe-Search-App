@@ -1,11 +1,3 @@
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'f80a470c6emsh53ef212fefabc98p100ffajsn70d7de6039d4',
-		'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
-	}
-};
-
 const results = [
   {
     "is_one_top": false,
@@ -774,7 +766,6 @@ const results = [
 ];
 
 let state = [];
-state = results;
 
 let myBtn = document.querySelector("#breakfast-link");
 myBtn.addEventListener('click', printRecipeList(results));
@@ -916,7 +907,6 @@ async function searchRecipe() {
   const response = await fetch(url, options);
   const data = await response.json();
   state = data.results;
-  return state;
 }
 
 async function filterByCategory(category) {
@@ -986,3 +976,6 @@ window.onclick = function(event) {
     $(list).show(1);
   }
 }
+
+searchRecipe("Alfredo");
+console.log(state);
