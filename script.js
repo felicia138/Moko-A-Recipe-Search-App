@@ -1,7 +1,7 @@
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': config.api_key,
+		'X-RapidAPI-Key': config,
 		'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
 	}
 };
