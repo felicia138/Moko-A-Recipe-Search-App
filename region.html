@@ -7,10 +7,9 @@
   <title>Recipes Website</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href="responsive.css" rel="stylesheet" type="text/css" />
-  <script src="responsive.js"></script>
 </head>
 
-<body>
+<body ><!--onload="showAllCategory('lunch')"-->
   <header class="header-area">
     <div class="container">
       <div class="logo">
@@ -23,9 +22,9 @@
             <li><a href="index.html">Home</a></li>
             <li><a id="breakfast-link" href="breakfast.html">Breakfast</a></li>
             <li><a href="lunch.html">Lunch</a></li>
-            <li><a href="dinner.html">Dinner</a></li>
+            <li><a href="dinner.html" class="active">Dinner</a></li>
             <li><a href="diet.html">Diet</a></li>
-            <li><a class="active" href="region.html">Region</a></li>
+            <li><a href="region.html">Region</a></li>
             <div id="search-bar">
               <input type="search" id="searchKey" placeholder="search"/>
               <button class="search" onclick="searchRecipe()"><img src="icons/search-icon.png"></button>
@@ -37,11 +36,77 @@
     </div>
   </header>
 
+  <main>
+    <section class="banner" id="region-banner">
+      <div class="content">
+          <div class="info">
+            <h1>Breakfast</h1>
+            <h2>the most important meal of the day</h2>
+          </div>
+          <div class="filters">
+            <a href="#recipe-list" class="filter" id="waffles" onlick="showAll('British')">British</a>
+            <a href="#recipe-list" class="filter" id="pancakes" onlick="showAll('Italian')">Italian</a>
+            <a href="#recipe-list" class="filter" id="crepes" onlick="showAll('Mexican')">Mexican</a>
+            <a href="#recipe-list" class="filter" id="eggs" onlick="showAll('Middle Eastern')">Middle Eastern</a>
+            <a href="#recipe-list" class="filter" id="french-toast" onlick="showAll('Dominican')">Dominican</a>
+            <a href="#recipe-list" class="filter" id="bread" onlick="showAll('Puerto Rican')">Puerto Rican</a>
+            <a href="#recipe-list" class="filter" id="crepes" onlick="showAll('Greek')">Greek</a>
+            <a href="#recipe-list" class="filter" id="crepes" onlick="showAll('Indian')">Indian</a>
+            <a href="#recipe-list" class="filter" id="crepes" onlick="showAll('Thai')">Thai</a>
+            <a href="#recipe-list" class="filter" id="crepes" onlick="showAll('Hawaiian')">Hawaiian</a>
+            <a href="#recipe-list" class="filter" id="crepes" onlick="showAll('West African')">West African</a>
+            <a href="#recipe-list" class="filter" id="crepes" onlick="showAll('Peruvian')">Cuban</a>
+            <a href="#recipe-list" class="filter" id="crepes" onlick="showAll('Peruvian')">Cuban</a>
+            <a href="#recipe-list" class="filter" id="crepes" onlick="showAll('Peruvian')">Cuban</a>
+            <a href="#recipe-list" class="filter" id="crepes" onlick="showAll('Peruvian')">Cuban</a>
+
+Brazillian
+Taiwanese
+Haitian
+German
+Japanese
+Korean
+African
+Caribbean
+Filipino
+South African
+Jamaican
+American
+Chinese
+french
+Latin American
+Vietnamese
+Fusion
+Kenyan
+Swedish
+Persian
+Lebanese
+Indigenous
+Loatian
+Venezuelan
+
+
+          </div>
+        </div>
+    </section>
+
+    <section id="recipe-list">
+
+    </section>
+
+    <div id="recipe-details">
+      <span class="close" onclick="closeRecipe()">&times;</span>
+      <div id="recipe-container">
+
+      </div>
+    </div>
+  </main>
+
   <footer>
 
     <p class="end">Design by <span> Client Cafe</span></p>
   </footer>
-
+  
   <script src="script.js"></script>
   <script src="responsive.js"></script>
 </body>

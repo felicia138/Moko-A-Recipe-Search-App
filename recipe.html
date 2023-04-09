@@ -7,6 +7,9 @@
   <title>Recipes Website</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href="responsive.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -23,7 +26,14 @@
             <li><a id="breakfast-link" class="active" href="breakfast.html">Breakfast</a></li>
             <li><a href="lunch.html">Lunch</a></li>
             <li><a href="dinner.html">Dinner</a></li>
-            <li><a href="diet.html">Diet</a></li>
+            <li class="dropdown">
+                <button>Diet</button>
+                <div class="dropdown-content">
+                <a href="diet.html">Blog</a>
+                <a href="diet.html">Academy</a>
+                <a href="diet.html">YouTube</a>
+              </div>
+            </li>
             <li><a href="region.html">Region</a></li>
             <div id="search-bar">
               <input type="search" id="searchKey" placeholder="search">

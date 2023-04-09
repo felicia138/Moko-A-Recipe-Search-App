@@ -9,7 +9,7 @@ const options = {
 let state = [];
 
 function printRecipeList(records) {
-  let result = document.querySelector("#pasta-recipes");
+  let result = document.querySelector("#recipe-list");
   
   let html='';
   
@@ -26,7 +26,7 @@ function printRecipeList(records) {
      html +=
     `
     <div class="col">
-      <div class="pasta-recipe">
+      <div class="recipe">
         <figure>
           <img src="${rec.thumbnail_url}" alt="${rec.name}">
         </figure>
@@ -161,7 +161,7 @@ async function printRecipeDetails(i) {
 
 async function searchRecipe (searchKey) {
   console.log("searching...");
-  searchKey = searchKey.replace(' ',"_");
+  searchKey = searchKey.replace(' ',"%");
   
   let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=0&size=50');
   url.searchParams.append('q',searchKey);
@@ -195,30 +195,11 @@ async function showAllCategory (category) {
   printRecipeList(state);
 }
 
-async function filterByArea(area) {
-  area = area.replace(' ',"_");
-  
-  let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=0&size=50');
-  url.searchParams.append('tags',area);
-  
-  const response = await fetch(url, options);
-  const data = await response.json();
-  console.log(data);
-}
-
 async function filterByIngredient(ingredient) {
-  ingredient = ingredient.replace(' ',"_");
+  ingredient = ingredient.replace(' ',"%");
   
   let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=0&size=50');
   url.searchParams.append('q',ingredient);
-  
-  const response = await fetch(url, options);
-  const data = await response.json();
-  console.log(data);
-}
-
-async function randomMeal() {
-  let url = new URL('https://tasty.p.rapidapi.com/feeds/list?size=1&timezone=%2B0700&vegetarian=false&from=0');
   
   const response = await fetch(url, options);
   const data = await response.json();

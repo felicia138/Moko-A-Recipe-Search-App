@@ -7,10 +7,9 @@
   <title>Recipes Website</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href="responsive.css" rel="stylesheet" type="text/css" />
-  <script src="responsive.js"></script>
 </head>
 
-<body>
+<body ><!--onload="showAllCategory('dinner')"-->
   <header class="header-area">
     <div class="container">
       <div class="logo">
@@ -23,7 +22,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a id="breakfast-link" href="breakfast.html">Breakfast</a></li>
             <li><a href="lunch.html">Lunch</a></li>
-            <li><a class="active" href="dinner.html">Dinner</a></li>
+            <li><a href="dinner.html" class="active">Dinner</a></li>
             <li><a href="diet.html">Diet</a></li>
             <li><a href="region.html">Region</a></li>
             <div id="search-bar">
@@ -37,11 +36,41 @@
     </div>
   </header>
 
+  <main>
+    <section class="banner" id="dinner-banner">
+      <div class="content">
+          <div class="info">
+            <h1>Dinner</h1>
+            <h2>the best memories are made around the dinner table</h2>
+          </div>
+          <div class="filters">
+            <a href="#recipe-list" class="filter" id="waffles" onlick="showAll('steak')">steak</a>
+            <a href="#recipe-list" class="filter" id="pancakes" onlick="showAll('meat loaf')">meat loaf</a>
+            <a href="#recipe-list" class="filter" id="crepes" onlick="showAll('pork chops')">pork chops</a>
+            <a href="#recipe-list" class="filter" id="eggs" onlick="showAll('30 minute meals')">30 minute meals</a>
+            <a href="#recipe-list" class="filter" id="french-toast" onlick="showAll('stew')">stew</a>
+            <a href="#recipe-list" class="filter" id="bread" onlick="showAll('one pot meals')">one pot meals</a>
+          </div>
+        </div>
+    </section>
+
+    <section id="recipe-list">
+
+    </section>
+
+    <div id="recipe-details">
+      <span class="close" onclick="closeRecipe()">&times;</span>
+      <div id="recipe-container">
+
+      </div>
+    </div>
+  </main>
+
   <footer>
 
     <p class="end">Design by <span> Client Cafe</span></p>
   </footer>
-
+  
   <script src="script.js"></script>
   <script src="responsive.js"></script>
 </body>
