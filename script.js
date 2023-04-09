@@ -168,6 +168,7 @@ async function searchRecipe (searchKey) {
   
   const response = await fetch(url, options);
   const data = await response.json();
+  console.log(data);
   return data.results;
 }
 
@@ -182,7 +183,7 @@ async function showAll (key) {
 async function filterByTags (category) {
   category = category.replace(' ',"_");
   
-  let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=10&size=50');
+  let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=0&size=50');
   url.searchParams.append('tags',category);
   
   const response = await fetch(url, options);
