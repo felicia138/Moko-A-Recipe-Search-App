@@ -4,6 +4,7 @@
         display: block;
         position: absolute;
         right: 5%;
+        align-self: center;
         z-index: 99999;
     }
 

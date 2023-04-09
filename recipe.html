@@ -10,7 +10,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="responsive.js"></script>
 </head>
+
+
 
 <body>
   <header class="header-area">
@@ -27,11 +30,17 @@
             <li><a href="lunch.html">Lunch</a></li>
             <li><a href="dinner.html">Dinner</a></li>
             <li class="dropdown">
-                <button>Diet</button>
-                <div class="dropdown-content">
-                <a href="diet.html">Blog</a>
-                <a href="diet.html">Academy</a>
-                <a href="diet.html">YouTube</a>
+              <button>Diet</button>
+               <div class="dropdown-content">
+                <a href="#recipe-list" class="filter" id="waffles" onlick="showAll('diary free')">diary-free</a>
+                <a href="#recipe-list" class="filter" id="pancakes" onlick="showAll('vegan')">vegan</a>
+                <a href="#recipe-list" class="filter" id="crepes" onlick="showAll('pescatarian')">pescatarian</a>
+                <a href="#recipe-list" class="filter" id="eggs" onlick="showAll('low carbs')">low carbs</a>
+                <a href="#recipe-list" class="filter" id="french-toast" onlick="showAll('healthy')">healthy</a>
+                <a href="#recipe-list" class="filter" id="bread" onlick="showAll('vegetarian')">vegetarian</a>
+                <a href="#recipe-list" class="filter" id="bread" onlick="showAll('glutten free')">glutten free</a>
+                <a href="#recipe-list" class="filter" id="bread" onlick="showAll('comfort food')">comfort food</a>
+                <a href="#recipe-list" class="filter" id="bread" onlick="showAll('kid friendly')">kid-friendly</a>
               </div>
             </li>
             <li><a href="region.html">Region</a></li>

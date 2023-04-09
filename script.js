@@ -15,36 +15,40 @@ function printRecipeList(records) {
   
   i = 0;
   for (let rec of records) {
-    if (i%4  == 0) {
-      html += 
-      `
-      <div class="flex-row">
-      `;
-      div = i+4;
-    }
+    if !(rec.hasOwnProperty('recipes')) {
+      if (i%4  == 0) {
+        html += 
+        `
+        <div class="flex-row">
+        `;
+        div = i+4;
+      }
 
-     html +=
-    `
-    <div class="col">
-      <div class="recipe">
-        <figure>
-          <img src="${rec.thumbnail_url}" alt="${rec.name}">
-        </figure>
-         <div class="recipe-details">
-          <h3>${rec.name}</h3>
-          <p>Prep: ${rec.prep_time_minutes} minutes</p>
-          <p>Cook: ${rec.cook_time_minutes} minutes</p>
-          <a href="#" id="read-more" onclick="printRecipeDetails(${i})">view</a>
+      html +=
+      `
+      <div class="col">
+        <div class="recipe">
+          <figure>
+            <img src="${rec.thumbnail_url}" alt="${rec.name}">
+          </figure>
+          <div class="recipe-details">
+            <h3>${rec.name}</h3>
+            <p>Prep: ${rec.prep_time_minutes} minutes</p>
+            <p>Cook: ${rec.cook_time_minutes} minutes</p>
+            <a href="#" id="read-more" onclick="printRecipeDetails(${i})">view</a>
+          </div>
         </div>
       </div>
-    </div>
-    `;
-    i++;
-    if (i == div) {
-      html += 
-      `
-      </div>
       `;
+      
+      i++;
+      
+      if (i == div) {
+        html += 
+        `
+        </div>
+        `;
+      }
     }
   }
 
@@ -74,7 +78,6 @@ async function printRecipeDetails(i) {
   `;
   
   let list = recipe.sections;
-  let count = 0;
   
   for (let item of list) {
     if (item.name != null) //  displays ingredients section name
@@ -85,15 +88,17 @@ async function printRecipeDetails(i) {
       `;
 
     for (let ingredient of item.components) { 
-      count++;  //  counts number of ingredients
-      html += `
-      <li>${ingredient.raw_text}</li>
-      `;
+      html += `<li>${ingredient.raw_text}</li>`;
     }
-    html+= `</ul>`;
+    html+= 
+    `
+    </ul>
+    `;
   }
-  html += `
-  </div>
+
+  html += 
+  `
+    </div>
   <div class="recipeDietTags">
     <h3>Tags: </h3>
       <ul class="tags">
@@ -124,29 +129,27 @@ async function printRecipeDetails(i) {
   if (recipe.description === "") {
     html += 
     `
-    <p class="description-details">No Decription Available</p></div>
+      <p class="description-details">No Decription Available</p></div>
     `;
   }
   else {
     html += 
     `
-    <p class="description-details">${recipe.description}</p>
+      <p class="description-details">${recipe.description}</p>
     </div>
     `;
   }
 
   html +=
-  `<div class="recipeInstructions">
-        <h2 class="instruction-heading">Instructions</h2>
-        <ul class="instruction-details">
+  `
+  <div class="recipeInstructions">
+    <h2 class="instruction-heading">Instructions</h2>
+      <ul class="instruction-details">
   `;
 
   let instructions = recipe.instructions;
   for (let step of instructions) {
-    html += 
-    `
-    <li>${step.display_text}</li>
-    `;
+    html += `<li>${step.display_text}</li>`;
   }
   html += 
   `
@@ -212,11 +215,8 @@ function closeRecipe () {
   details.parentElement.style.display = 'none';
 }
 
-let searchBtn = document.querySelector(".search");
-
-searchBtn.addEventListener("click", searchRecipes);
-
 function searchRecipes () {
-  let searchKey = document.querySelector('#searchKey').value;
+  let searchKey = document.querySelector('#search').value;
+  console.log(searchKey);
   showAll(searchKey);
 }

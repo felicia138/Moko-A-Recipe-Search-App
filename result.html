@@ -26,10 +26,7 @@
             <li><a href="dinner.html">Dinner</a></li>
             <li><a href="diet.html">Diet</a></li>
             <li><a href="region.html">Region</a></li>
-            <div id="search-bar">
-              <input type="search" id="searchKey" placeholder="search"/>
-              <button class="search" onclick="searchRecipe()"><img src="icons/search-icon.png"></button>
-            </div>
+            <li><a href="result.html" class="search"><img src="icons/search-icon.png"></a></li>
           </ul>
           <button class="nav-toggler" onclick="myFunction()"></button>
         </nav>
@@ -37,11 +34,37 @@
     </div>
   </header>
   <main>
+    <section class="banner" id="breakfast-banner">
+      <div class="content">
+        <div class="info">
+          <h1>Search</h1>
+          <h2>“The kitchen is a country in which there are always discoveries to be made.” - Grimod de la Reynière (1758-1838)</h2>
+        </div>
+      </div>
+      <div id="search-bar">
+        <input type="search" id="search" placeholder="search"/>
+        <a href="#recipe-list" id="search-btn" onclick="searchRecipes()"><img src="icons/search-icon.png"></a>
+      </div>
+    </section>
+
+    <section id="recipe-list">
+      <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </section>
+
+    <div id="recipe-details">
+      <span class="close" onclick="closeRecipe()">&times;</span>
+      <div id="recipe-container">
+
+      </div>
+    </div>
   </main>
 
   <footer>
     <p class="end">Design by <span> Client Cafe</span></p>
   </footer>
+
+  <script src="script.js"></script>
+  <script src="responsive.js"></script>
 </body>
 
 </html>
