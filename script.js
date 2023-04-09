@@ -10,12 +10,13 @@ let state = [];
 
 function printRecipeList(records) {
   let result = document.querySelector("#recipe-list");
-  
-  let html='';
-  
+
+  html = '';
+
+  count = 0;
   i = 0;
   for (let rec of records) {
-    if !(rec.hasOwnProperty('recipes')) {
+    if (!(rec.hasOwnProperty('recipes'))) {
       if (i%4  == 0) {
         html += 
         `
@@ -33,9 +34,22 @@ function printRecipeList(records) {
           </figure>
           <div class="recipe-details">
             <h3>${rec.name}</h3>
-            <p>Prep: ${rec.prep_time_minutes} minutes</p>
-            <p>Cook: ${rec.cook_time_minutes} minutes</p>
-            <a href="#" id="read-more" onclick="printRecipeDetails(${i})">view</a>
+      `;
+      if (rec.prep_time_minutes != null) {
+        html +=
+        `
+              <p>Prep: ${rec.prep_time_minutes} minutes</p>
+        `;
+      }
+      if (rec.cook_time_minutes != null) {
+        html +=
+        `
+              <p>Cook: ${rec.cook_time_minutes} minutes</p>
+        `;
+      }
+      html +=
+      `
+            <a href="#" id="read-more" onclick="printRecipeDetails(${count})">view</a>
           </div>
         </div>
       </div>
@@ -50,6 +64,7 @@ function printRecipeList(records) {
         `;
       }
     }
+    count++;
   }
 
   result.innerHTML = html;
@@ -68,9 +83,29 @@ async function printRecipeDetails(i) {
       
       <div class="details">
         <p>Servings: ${recipe.num_servings}</p>
-        <p>Prep: ${recipe.prep_time_minutes}</p>
-        <p>Cook: ${recipe.cook_time_minutes}</p>
-        <p id="ingredient-count">Ingredients: </p>
+  `;
+  if (recipe.prep_time_minutes != null) {
+    html +=
+    `
+      <p>Prep: ${recipe.prep_time_minutes} minutes</p>
+    `;
+  }
+  if (recipe.cook_time_minutes != null) {
+    html +=
+    `
+    <p>Cook: ${recipe.cook_time_minutes} minutes</p>
+    `;
+  }
+  if (recipe.total_time_minutes != null) {
+    html +=
+    `
+      <p>Total: ${recipe.cook_time_minutes} minutes</p>
+    `;
+  }
+
+  html +=
+  `
+    <p id="ingredient-count"> </p>
       </div>
       
       <div class="recipeIngredientList">
@@ -78,16 +113,22 @@ async function printRecipeDetails(i) {
   `;
   
   let list = recipe.sections;
-  
+  count = 0;
   for (let item of list) {
-    if (item.name != null) //  displays ingredients section name
+    if (item.name != null) { //  displays ingredients section name
       html += 
       `
       <h3>${item.name}</h3>
-      <ul>
       `;
+    }
+    
+    html +=
+    `
+    <ul>
+    `;
 
     for (let ingredient of item.components) { 
+      count++;
       html += `<li>${ingredient.raw_text}</li>`;
     }
     html+= 
@@ -99,7 +140,7 @@ async function printRecipeDetails(i) {
   html += 
   `
     </div>
-  <div class="recipeDietTags">
+  <div class="recipeTags">
     <h3>Tags: </h3>
       <ul class="tags">
   `;
@@ -108,22 +149,25 @@ async function printRecipeDetails(i) {
   //  displays relevant tags
   for (let tag of tagList) {
     if(tag.type === "dietary") {
-      html += `<li>${tag.display_name}</li>`;  
+      html += `<li class="recipeDietTags">${tag.display_name}</li>`;  
     }
     if(tag.type === "holiday" || tag.type === "occasion" || tag.type === "meal")
-      console.log(tag.display_name);
+      html += `<li class="recipeOccasionTags">${tag.display_name}</li>`;
     if(tag.type === "difficulty")
-      console.log(tag.display_name);
+      html += `<li class="recipeDifficultyTags">${tag.display_name}</li>`;
     if(tag.type === "cuisine")
-      console.log(tag.display_name);
+      html += `<li class="recipeRegionTags">${tag.display_name}</li>`;
   }
 
-  html += `</ul>
+  html += 
+  `
+        </ul>
       </div>
     </div>
     <div class="contentContainerColumn2">
       <div class="recipeDescription">
-        <h2 class="description-heading">Decription</h2>`;
+        <h2 class="description-heading">Decription</h2>
+  `;
 
 
   if (recipe.description === "") {
@@ -158,6 +202,7 @@ async function printRecipeDetails(i) {
   `;
 
   result.innerHTML = html;
+  document.getElementById('ingredient-count').innerHTML = `Ingredients: ${count}`;
   result.parentElement.style.display = 'block';
 }
 
@@ -176,7 +221,12 @@ async function searchRecipe (searchKey) {
 }
 
 async function showAll (key) {
-  console.log("hello");
+  let page = document.querySelector('#recipe-list');
+  html = '';
+
+  html += `<div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`;
+  page.innerHTML = html;
+  
   state = await searchRecipe(key);
   console.log("result...");
   console.log(state);

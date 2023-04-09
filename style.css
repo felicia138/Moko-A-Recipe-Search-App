@@ -538,11 +538,7 @@ main {
   padding-top: 5px;
 }
 
-.recipeDietTags {
-  text-align: left;
-}
-
-.recipeHealthTags {
+.recipeTags {
   text-align: left;
 }
 
@@ -567,12 +563,24 @@ main {
   text-transform: lowercase;
 }
 
-.recipeDietTags li {
-  border: 2px solid rgb(240, 0, 0);
+.recipeTags li {
+  border: 2px solid;
 }
 
-.recipeHealthTags li {
-  border: 2px solid green;
+.recipeDietTags {
+  border-color: rgb(255, 135, 151);
+}
+
+.recipeOccasionTags {
+  border-color: rgb(0, 189, 179);
+}
+
+.recipeDifficultyTags {
+  border-color: rgb(0, 128, 64);
+}
+
+.recipeRegionTags {
+  border-color: rgb(170, 113, 224);
 }
 
 .contentContainerColumn2 {
