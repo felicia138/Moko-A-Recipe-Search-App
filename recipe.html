@@ -7,7 +7,6 @@
   <title>Recipes Website</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href="responsive.css" rel="stylesheet" type="text/css" />
-  <script src="responsive.js"></script>
 </head>
 
 <body>
@@ -21,13 +20,13 @@
         <nav class="navbar" id="navigation">
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a id="breakfast-link" href="breakfast.html">Breakfast</a></li>
-            <li><a class="active" href="lunch.html">Lunch</a></li>
+            <li><a id="breakfast-link" class="active" href="breakfast.html">Breakfast</a></li>
+            <li><a href="lunch.html">Lunch</a></li>
             <li><a href="dinner.html">Dinner</a></li>
             <li><a href="diet.html">Diet</a></li>
             <li><a href="region.html">Region</a></li>
             <div id="search-bar">
-              <input type="search" id="searchKey" placeholder="search"/>
+              <input type="search" id="searchKey" placeholder="search">
               <button class="search" onclick="searchRecipe()"><img src="icons/search-icon.png"></button>
             </div>
           </ul>
@@ -45,12 +44,12 @@
             <h2>the most important meal of the day</h2>
           </div>
           <div class="filters">
-            <a class="filter" id="waffles" onlick="showAll('waffles')">waffles</a>
-            <a class="filter" id="pancakes" onlick="showAll('pancakes')">pancakes</a>
-            <a class="filter" id="crepes" onlick="showAll('crepes')">crepes</a>
-            <a class="filter" id="eggs" onlick="showAll('eggs')">eggs</a>
-            <a class="filter" id="french-toast" onlick="showAll('french toast')">french toast</a>
-            <a class="filter" id="bread" onlick="showAll('bread')">bread</a>
+            <a href="#pasta-recipes" class="filter" id="waffles" onlick="showAll('waffles')">waffles</a>
+            <a href="#pasta-recipes" class="filter" id="pancakes" onlick="showAll('pancakes')">pancakes</a>
+            <a href="#pasta-recipes" class="filter" id="crepes" onlick="showAll('crepes')">crepes</a>
+            <a href="#pasta-recipes" class="filter" id="eggs" onlick="showAll('eggs')">eggs</a>
+            <a href="#pasta-recipes" class="filter" id="french-toast" onlick="showAll('french toast')">french toast</a>
+            <a href="#pasta-recipes" class="filter" id="bread" onlick="showAll('bread')">bread</a>
           </div>
         </div>
     </section>
@@ -61,13 +60,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/432886.jpg" alt="Chocolate Chip Cookie Dough Blended Oats">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/432886.jpg" alt="Chocolate Chip Cookie Dough Blended Oats">
         </figure>
          <div class="recipe-details">
           <h3>Chocolate Chip Cookie Dough Blended Oats</h3>
           <p>Prep: 5 minutes</p>
           <p>Cook: 20 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(0)">view</button>
         </div>
       </div>
     </div>
@@ -81,7 +80,7 @@
           <h3>Savory French Toast</h3>
           <p>Prep: 10 minutes</p>
           <p>Cook: 25 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(1)">view</button>
         </div>
       </div>
     </div>
@@ -89,13 +88,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/431321.jpg" alt="Honey Butter Cereal">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/431321.jpg" alt="Honey Butter Cereal">
         </figure>
          <div class="recipe-details">
           <h3>Honey Butter Cereal</h3>
           <p>Prep: 25 minutes</p>
           <p>Cook: 15 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(2)">view</button>
         </div>
       </div>
     </div>
@@ -103,13 +102,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/427507.jpg" alt="Eggs In A Baguette">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/427507.jpg" alt="Eggs In A Baguette">
         </figure>
          <div class="recipe-details">
           <h3>Eggs In A Baguette</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(3)">view</button>
         </div>
       </div>
     </div>
@@ -121,13 +120,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/423476.jpg" alt="Sticky Oatmeal">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/423476.jpg" alt="Sticky Oatmeal">
         </figure>
          <div class="recipe-details">
           <h3>Sticky Oatmeal</h3>
           <p>Prep: 5 minutes</p>
           <p>Cook: 10 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(4)">view</button>
         </div>
       </div>
     </div>
@@ -135,13 +134,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/ceaced4fc4414a01badda35ef34726fc.jpeg" alt="Tembleque Vegan Pudding">
+          <img src="https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/ceaced4fc4414a01badda35ef34726fc.jpeg" alt="Tembleque Vegan Pudding">
         </figure>
          <div class="recipe-details">
           <h3>Tembleque Vegan Pudding</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(5)">view</button>
         </div>
       </div>
     </div>
@@ -149,13 +148,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/411315.jpg" alt="Pancake Batter Cones">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/411315.jpg" alt="Pancake Batter Cones">
         </figure>
          <div class="recipe-details">
           <h3>Pancake Batter Cones</h3>
           <p>Prep: 15 minutes</p>
           <p>Cook: 15 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(6)">view</button>
         </div>
       </div>
     </div>
@@ -163,13 +162,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/412567.jpg" alt="Crunchy Hash Brown Breakfast Wrap">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/412567.jpg" alt="Crunchy Hash Brown Breakfast Wrap">
         </figure>
          <div class="recipe-details">
           <h3>Crunchy Hash Brown Breakfast Wrap</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(7)">view</button>
         </div>
       </div>
     </div>
@@ -181,13 +180,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/412559.jpg" alt="Holiday Hash Brown Waffles">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/412559.jpg" alt="Holiday Hash Brown Waffles">
         </figure>
          <div class="recipe-details">
           <h3>Holiday Hash Brown Waffles</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(8)">view</button>
         </div>
       </div>
     </div>
@@ -195,13 +194,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/TN03.jpeg" alt="5 Make-Ahead Morning Snacks Because You&#39;re Always Running Late">
+          <img src="https://s3.amazonaws.com/video-api-prod/assets/c356e18e11a440bf9e20a4016c82e3ac/TN03.jpeg" alt="5 Make-Ahead Morning Snacks Because You're Always Running Late">
         </figure>
          <div class="recipe-details">
           <h3>5 Make-Ahead Morning Snacks Because You're Always Running Late</h3>
           <p>Prep: undefined minutes</p>
           <p>Cook: undefined minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(9)">view</button>
         </div>
       </div>
     </div>
@@ -209,13 +208,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/405972.jpg" alt="Caramel Apple Pie French Toast">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/405972.jpg" alt="Caramel Apple Pie French Toast">
         </figure>
          <div class="recipe-details">
           <h3>Caramel Apple Pie French Toast</h3>
           <p>Prep: 60 minutes</p>
           <p>Cook: 5 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(10)">view</button>
         </div>
       </div>
     </div>
@@ -223,13 +222,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/Thumbnailfinal.jpg" alt="Guatemalan Desayuno Chapin">
+          <img src="https://s3.amazonaws.com/video-api-prod/assets/602a1f9dfb73405884634e895c1d0369/Thumbnailfinal.jpg" alt="Guatemalan Desayuno Chapin">
         </figure>
          <div class="recipe-details">
           <h3>Guatemalan Desayuno Chapin</h3>
           <p>Prep: 15 minutes</p>
           <p>Cook: 20 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(11)">view</button>
         </div>
       </div>
     </div>
@@ -241,13 +240,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/399284.jpg" alt="Honduran Baleadas">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/399284.jpg" alt="Honduran Baleadas">
         </figure>
          <div class="recipe-details">
           <h3>Honduran Baleadas</h3>
           <p>Prep: 35 minutes</p>
           <p>Cook: 10 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(12)">view</button>
         </div>
       </div>
     </div>
@@ -255,13 +254,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/1f31e5230bdd47e483248ad516d39cfb.jpeg" alt="Hotel Effie’s Southern Biscuits">
+          <img src="https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/1f31e5230bdd47e483248ad516d39cfb.jpeg" alt="Hotel Effie’s Southern Biscuits">
         </figure>
          <div class="recipe-details">
           <h3>Hotel Effie’s Southern Biscuits</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(13)">view</button>
         </div>
       </div>
     </div>
@@ -269,13 +268,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/397220.jpg" alt="Back-To-School Sheet Pan Pancake">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/397220.jpg" alt="Back-To-School Sheet Pan Pancake">
         </figure>
          <div class="recipe-details">
           <h3>Back-To-School Sheet Pan Pancake</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(14)">view</button>
         </div>
       </div>
     </div>
@@ -283,13 +282,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/390091.jpg" alt="Team Pancakes or Team Waffles?">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/390091.jpg" alt="Team Pancakes or Team Waffles?">
         </figure>
          <div class="recipe-details">
           <h3>Team Pancakes or Team Waffles?</h3>
           <p>Prep: undefined minutes</p>
           <p>Cook: undefined minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(15)">view</button>
         </div>
       </div>
     </div>
@@ -301,13 +300,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/1629438374994236ae9c5c2aa5a7668f.jpeg" alt="PB &amp; J Overnight Oats With Magic Shell">
+          <img src="https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/1629438374994236ae9c5c2aa5a7668f.jpeg" alt="PB &amp; J Overnight Oats With Magic Shell">
         </figure>
          <div class="recipe-details">
           <h3>PB &amp; J Overnight Oats With Magic Shell</h3>
           <p>Prep: 10 minutes</p>
           <p>Cook: 0 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(16)">view</button>
         </div>
       </div>
     </div>
@@ -315,13 +314,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/b56eec1b94b14b408331378c58201d5e.jpeg" alt="Protein Oatmeal">
+          <img src="https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/b56eec1b94b14b408331378c58201d5e.jpeg" alt="Protein Oatmeal">
         </figure>
          <div class="recipe-details">
           <h3>Protein Oatmeal</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(17)">view</button>
         </div>
       </div>
     </div>
@@ -329,13 +328,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/1906378ec8e946d8be034e3273c62a1b.jpeg" alt="Croissant Breakfast Pizza">
+          <img src="https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/1906378ec8e946d8be034e3273c62a1b.jpeg" alt="Croissant Breakfast Pizza">
         </figure>
          <div class="recipe-details">
           <h3>Croissant Breakfast Pizza</h3>
           <p>Prep: 10 minutes</p>
           <p>Cook: 40 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(18)">view</button>
         </div>
       </div>
     </div>
@@ -343,13 +342,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/e5c9d75942394a1bb3388352baad7180.jpeg" alt="Cast Iron Breakfast Pizza">
+          <img src="https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/e5c9d75942394a1bb3388352baad7180.jpeg" alt="Cast Iron Breakfast Pizza">
         </figure>
          <div class="recipe-details">
           <h3>Cast Iron Breakfast Pizza</h3>
           <p>Prep: 10 minutes</p>
           <p>Cook: 35 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(19)">view</button>
         </div>
       </div>
     </div>
@@ -361,13 +360,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/BFV42329_TastyMealPlanrecipe1_FB_V2.jpg" alt="Greek Yogurt Green Smoothie">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/e22bf41ba0934f0d8450255bd9f6ad6d/BFV42329_TastyMealPlanrecipe1_FB_V2.jpg" alt="Greek Yogurt Green Smoothie">
         </figure>
          <div class="recipe-details">
           <h3>Greek Yogurt Green Smoothie</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(20)">view</button>
         </div>
       </div>
     </div>
@@ -375,13 +374,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/387710.jpg" alt="Quick Weekday Breakfasts For When You Hit The Snooze Button">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/387710.jpg" alt="Quick Weekday Breakfasts For When You Hit The Snooze Button">
         </figure>
          <div class="recipe-details">
           <h3>Quick Weekday Breakfasts For When You Hit The Snooze Button</h3>
           <p>Prep: undefined minutes</p>
           <p>Cook: undefined minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(21)">view</button>
         </div>
       </div>
     </div>
@@ -389,13 +388,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/501bc8f58e1945b2a1fe32d99e5e2a37.jpeg" alt="Buttermilk Banana Pancakes">
+          <img src="https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/501bc8f58e1945b2a1fe32d99e5e2a37.jpeg" alt="Buttermilk Banana Pancakes">
         </figure>
          <div class="recipe-details">
           <h3>Buttermilk Banana Pancakes</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(22)">view</button>
         </div>
       </div>
     </div>
@@ -403,13 +402,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/380128.jpg" alt="Pancakes 101">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/380128.jpg" alt="Pancakes 101">
         </figure>
          <div class="recipe-details">
           <h3>Pancakes 101</h3>
           <p>Prep: undefined minutes</p>
           <p>Cook: undefined minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(23)">view</button>
         </div>
       </div>
     </div>
@@ -421,13 +420,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/35d4735861ac471eae755b825f17ce79.jpeg" alt="Omelet With Salmon &amp; Cream Cheese">
+          <img src="https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/35d4735861ac471eae755b825f17ce79.jpeg" alt="Omelet With Salmon &amp; Cream Cheese">
         </figure>
          <div class="recipe-details">
           <h3>Omelet With Salmon &amp; Cream Cheese</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(24)">view</button>
         </div>
       </div>
     </div>
@@ -435,13 +434,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/379415.jpg" alt="7 Days 7 Omelets">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/379415.jpg" alt="7 Days 7 Omelets">
         </figure>
          <div class="recipe-details">
           <h3>7 Days 7 Omelets</h3>
           <p>Prep: undefined minutes</p>
           <p>Cook: undefined minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(25)">view</button>
         </div>
       </div>
     </div>
@@ -449,13 +448,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/1d29eb676d864c8c9010f4f5ab68baee.jpeg" alt="Homemade Oatmeal">
+          <img src="https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/1d29eb676d864c8c9010f4f5ab68baee.jpeg" alt="Homemade Oatmeal">
         </figure>
          <div class="recipe-details">
           <h3>Homemade Oatmeal</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(26)">view</button>
         </div>
       </div>
     </div>
@@ -463,13 +462,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/PlanetOat_SmoothieBowls3Ways_BFV90538_SQHero.jpg" alt="Berry Beet Bowl">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/686d917d39dd490783f1757147e9da71/PlanetOat_SmoothieBowls3Ways_BFV90538_SQHero.jpg" alt="Berry Beet Bowl">
         </figure>
          <div class="recipe-details">
           <h3>Berry Beet Bowl</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(27)">view</button>
         </div>
       </div>
     </div>
@@ -481,13 +480,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/cd11a805e46e43d08a73e024e8a89254.jpeg" alt="Styled Bagel">
+          <img src="https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/cd11a805e46e43d08a73e024e8a89254.jpeg" alt="Styled Bagel">
         </figure>
          <div class="recipe-details">
           <h3>Styled Bagel</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(28)">view</button>
         </div>
       </div>
     </div>
@@ -495,13 +494,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/HASHBROWNINSTA1.jpg" alt="Cheese-Stuffed Hash Browns">
+          <img src="https://s3.amazonaws.com/video-api-prod/assets/f0ef3c563c104a1db8d4668c8bd0bbdf/HASHBROWNINSTA1.jpg" alt="Cheese-Stuffed Hash Browns">
         </figure>
          <div class="recipe-details">
           <h3>Cheese-Stuffed Hash Browns</h3>
           <p>Prep: 20 minutes</p>
           <p>Cook: 15 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(29)">view</button>
         </div>
       </div>
     </div>
@@ -509,13 +508,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/373736.jpg" alt="Hotteok (Korean Sweet Pancakes)">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/373736.jpg" alt="Hotteok (Korean Sweet Pancakes)">
         </figure>
          <div class="recipe-details">
           <h3>Hotteok (Korean Sweet Pancakes)</h3>
           <p>Prep: 20 minutes</p>
           <p>Cook: 20 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(30)">view</button>
         </div>
       </div>
     </div>
@@ -523,13 +522,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/HamAndCheeseBreakfastRolls.jpeg" alt="Savory Ham And Cheese Breakfast Rolls">
+          <img src="https://s3.amazonaws.com/video-api-prod/assets/cec4a691919448c29dd39188d27d6f73/HamAndCheeseBreakfastRolls.jpeg" alt="Savory Ham And Cheese Breakfast Rolls">
         </figure>
          <div class="recipe-details">
           <h3>Savory Ham And Cheese Breakfast Rolls</h3>
           <p>Prep: 10 minutes</p>
           <p>Cook: 25 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(31)">view</button>
         </div>
       </div>
     </div>
@@ -541,13 +540,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/CinnamonToastCrunchBakedOats.jpeg" alt="Cinnamon Toast Crunch Baked Oats">
+          <img src="https://s3.amazonaws.com/video-api-prod/assets/dd580f27433c4171a452339d02fdaab9/CinnamonToastCrunchBakedOats.jpeg" alt="Cinnamon Toast Crunch Baked Oats">
         </figure>
          <div class="recipe-details">
           <h3>Cinnamon Toast Crunch Baked Oats</h3>
           <p>Prep: 5 minutes</p>
           <p>Cook: 15 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(32)">view</button>
         </div>
       </div>
     </div>
@@ -555,13 +554,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/08071e969c7a4d308de714cd9b4e1a8d.jpeg" alt="Citrus Espresso Custard Toast">
+          <img src="https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/08071e969c7a4d308de714cd9b4e1a8d.jpeg" alt="Citrus Espresso Custard Toast">
         </figure>
          <div class="recipe-details">
           <h3>Citrus Espresso Custard Toast</h3>
           <p>Prep: 10 minutes</p>
           <p>Cook: 5 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(33)">view</button>
         </div>
       </div>
     </div>
@@ -569,13 +568,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/341495.jpg" alt="How To Make Classic French Toast">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/341495.jpg" alt="How To Make Classic French Toast">
         </figure>
          <div class="recipe-details">
           <h3>How To Make Classic French Toast</h3>
           <p>Prep: 5 minutes</p>
           <p>Cook: 10 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(34)">view</button>
         </div>
       </div>
     </div>
@@ -583,13 +582,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/360217.jpg" alt="Pancake And Waffle Cereal">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/360217.jpg" alt="Pancake And Waffle Cereal">
         </figure>
          <div class="recipe-details">
           <h3>Pancake And Waffle Cereal</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(35)">view</button>
         </div>
       </div>
     </div>
@@ -601,13 +600,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/360213.jpg" alt="Griddle Stackers">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/360213.jpg" alt="Griddle Stackers">
         </figure>
          <div class="recipe-details">
           <h3>Griddle Stackers</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(36)">view</button>
         </div>
       </div>
     </div>
@@ -615,13 +614,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/b60280faac3745be8a66bdc12c0757d1.jpeg" alt="Strawberry Cream Cheese Stuffed French Toast">
+          <img src="https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/b60280faac3745be8a66bdc12c0757d1.jpeg" alt="Strawberry Cream Cheese Stuffed French Toast">
         </figure>
          <div class="recipe-details">
           <h3>Strawberry Cream Cheese Stuffed French Toast</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(37)">view</button>
         </div>
       </div>
     </div>
@@ -629,13 +628,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/0d1431b7b8b049afbc6e094a0039fc82.jpeg" alt="Nutella &amp; Banana Brioche French Toast">
+          <img src="https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/0d1431b7b8b049afbc6e094a0039fc82.jpeg" alt="Nutella &amp; Banana Brioche French Toast">
         </figure>
          <div class="recipe-details">
           <h3>Nutella &amp; Banana Brioche French Toast</h3>
           <p>Prep: null minutes</p>
           <p>Cook: null minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(38)">view</button>
         </div>
       </div>
     </div>
@@ -643,13 +642,13 @@
     <div class="col">
       <div class="pasta-recipe">
         <figure>
-          <img src="./Recipes Website_files/324087.jpg" alt="Boba Pancakes With Milk Tea Cream">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/324087.jpg" alt="Boba Pancakes With Milk Tea Cream">
         </figure>
          <div class="recipe-details">
           <h3>Boba Pancakes With Milk Tea Cream</h3>
           <p>Prep: 20 minutes</p>
           <p>Cook: 50 minutes</p>
-          <button id="read-more">view</button>
+          <button id="read-more" onclick="printRecipeDetails(39)">view</button>
         </div>
       </div>
     </div>
@@ -660,8 +659,61 @@
     <div id="recipe-details">
       <span class="close">×</span>
       <div id="recipe-container">
-
+  <div class="contentContainerColumn1">
+      <div class="recipeImage"><img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/432886.jpg"></div>
+      <div class="recipeName"><h1>Chocolate Chip Cookie Dough Blended Oats</h1></div>
+      
+      <div class="details">
+        <p>Servings: 1</p>
+        <p>Prep: 5</p>
+        <p>Cook: 20</p>
+        <p id="ingredient-count">Ingredients: </p>
       </div>
+      
+      <div class="recipeIngredientList">
+        <h2>Ingredients</h2>
+  
+      <li>½ cup oats</li>
+      
+      <li>⅓ cup milk of choice</li>
+      
+      <li>1 large egg</li>
+      
+      <li>¼ teaspoon baking powder</li>
+      
+      <li>Dash of ground cinnamon</li>
+      
+      <li>1 tablespoon maple syrup</li>
+      
+      <li>2 tablespoons almond butter, divided</li>
+      
+      <li>½ banana</li>
+      
+      <li>½ teaspoon vanilla extract (optional)</li>
+      
+      <li>1 tablespoon chopped nuts of choice (optional)</li>
+      
+      <li>1 teaspoon cacao nibs (optional)</li>
+      
+      <li>3 tablespoons chocolate chips, divided</li>
+      
+  </div>
+  <div class="recipeDietTags">
+    <h3>Diet: </h3>
+      <ul class="tags">
+  <li>Dairy-Free</li><li>Vegetarian</li></ul>
+      </div>
+    </div>
+    <div class="contentContainerColumn2">
+      <div class="recipeDescription">
+        <h2 class="description-heading">Decription</h2><p class="description-details">If you’re bored with overnight oats, blended and baked oats are the perfect way to spice up your morning routine! This heavenly recipe tastes like a freshly baked chocolate chip cookie in a mug. Follow the recipe below for an indulgent, sweet, and creamy morning treat, or mix and match your favorite toppings to match your taste.</p>
+    </div>
+    <div class="recipeInstructions">
+        <h2 class="instruction-heading">Instructions</h2>
+        <ul class="instruction-details"><li>Add the oats, milk, egg, baking powder, cinnamon, maple syrup, 1 tablespoon of almond butter, the banana, and vanilla, if using, to a blender and blend until smooth. If using nuts and cacao nibs, add to the blender and blend for just a few seconds to help distribute without breaking them up too much. This will add a lovely crunch to your oats.</li><li>Pour half the batter into a large mug or oven-safe ramekin, greased with butter or cooking spray. Add the remaining tablespoon of almond butter and 1½ tablespoons of chocolate chips to the center. Cover with the rest of the batter. Top with the remaining 1½ tablespoons of chocolate chips.</li><li>Preheat the air fryer to 325°F (160°C). Place the mug in the air fryer and cook for 20 minutes, until golden brown and a toothpick inserted into the center comes out clean. Alternatively, microwave the oats for 2 minutes (make sure to use a mug that holds at least 20 ounces, as microwaving causes the batter to rise very quickly and may result in overflowing).</li><li>Enjoy!</li>
+  </ul>
+  </div>
+  </div></div>
     </div>
   </main>
 
@@ -669,9 +721,7 @@
 
     <p class="end">Design by <span> Client Cafe</span></p>
   </footer>
-
+  
   <script src="script.js"></script>
   <script src="responsive.js"></script>
-</body>
-
 </html>

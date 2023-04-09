@@ -368,7 +368,7 @@ main {
   object-fit: cover;
 }
 
-.read-more {
+#read-more {
   font-size: 16px;
   color: #fff;
   max-width: 204px;
@@ -435,6 +435,10 @@ main {
   right: 0;
   width: 100vw;
   background-color: white;
+}
+
+.open {
+  display: block;
 }
 
 /* The Close Button */

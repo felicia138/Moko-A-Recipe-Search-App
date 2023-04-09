@@ -34,7 +34,7 @@ function printRecipeList(records) {
           <h3>${rec.name}</h3>
           <p>Prep: ${rec.prep_time_minutes} minutes</p>
           <p>Cook: ${rec.cook_time_minutes} minutes</p>
-          <button id="read-more">view</button>
+          <a href="#" id="read-more" onclick="printRecipeDetails(${i})">view</a>
         </div>
       </div>
     </div>
@@ -51,9 +51,9 @@ function printRecipeList(records) {
   result.innerHTML = html;
 }
 
-async function printRecipeDetails() {
-  
-  let recipe = results[0];
+async function printRecipeDetails(i) {
+  let recipe = state[i];
+  let result = document.querySelector("#recipe-container");
   
   let html = '';
   html += 
@@ -95,7 +95,7 @@ async function printRecipeDetails() {
   html += `
   </div>
   <div class="recipeDietTags">
-    <h3>Diet: </h3>
+    <h3>Tags: </h3>
       <ul class="tags">
   `;
 
@@ -122,19 +122,31 @@ async function printRecipeDetails() {
 
 
   if (recipe.description === "") {
-    html += `<p class="description-details">No Decription Available</p></div>`;
+    html += 
+    `
+    <p class="description-details">No Decription Available</p></div>
+    `;
   }
   else {
-    html += `<p class="description-details">${recipe.description}</p>
+    html += 
+    `
+    <p class="description-details">${recipe.description}</p>
     </div>
-    <div class="recipeInstructions">
-        <h2 class="instruction-heading">Instructions</h2>
-        <ul class="instruction-details">`;
+    `;
   }
+
+  html +=
+  `<div class="recipeInstructions">
+        <h2 class="instruction-heading">Instructions</h2>
+        <ul class="instruction-details">
+  `;
 
   let instructions = recipe.instructions;
   for (let step of instructions) {
-    html += `<li>${step.display_text}</li>`;
+    html += 
+    `
+    <li>${step.display_text}</li>
+    `;
   }
   html += 
   `
@@ -143,11 +155,12 @@ async function printRecipeDetails() {
   `;
 
   result.innerHTML = html;
+  result.parentElement.style.display = 'block';
 }
 
-// let searchKey = document.querySelector('#searchKey').value;
 
-async function searchRecipe(searchKey) {
+async function searchRecipe (searchKey) {
+  console.log("searching...");
   searchKey = searchKey.replace(' ',"_");
   
   let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=0&size=50');
@@ -155,19 +168,21 @@ async function searchRecipe(searchKey) {
   
   const response = await fetch(url, options);
   const data = await response.json();
-  console.log(data);
   return data.results;
 }
 
 async function showAll (key) {
+  console.log("hello");
   state = await searchRecipe(key);
+  console.log("result...");
+  console.log(state);
   printRecipeList(state);
 }
 
-async function filterByCategory(category) {
+async function filterByTags (category) {
   category = category.replace(' ',"_");
   
-  let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=0&size=50');
+  let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=10&size=50');
   url.searchParams.append('tags',category);
   
   const response = await fetch(url, options);
@@ -176,7 +191,7 @@ async function filterByCategory(category) {
 }
 
 async function showAllCategory (category) {
-  state = await filterByCategory(category);
+  state = await filterByTags(category);
   printRecipeList(state);
 }
 
@@ -209,30 +224,17 @@ async function randomMeal() {
   const data = await response.json();
   console.log(data);
 }
-let list = document.getElementById("pasta-recipes")
-let details = document.getElementById("recipe-details");
 
-// Get the button that opens the modal
-let btn = document.getElementById("read-more");
-
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  details.style.display = "block";
-  $(list).hide(1);
+function closeRecipe () {
+  let details = document.getElementById("recipe-container");
+  details.parentElement.style.display = 'none';
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  details.style.display = "none";
-}
+let searchBtn = document.querySelector(".search");
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == details) {
-    details.style.display = "none";
-    $(list).show(1);
-  }
+searchBtn.addEventListener("click", searchRecipes);
+
+function searchRecipes () {
+  let searchKey = document.querySelector('#searchKey').value;
+  showAll(searchKey);
 }
