@@ -71,7 +71,7 @@ function printRecipeList(records) {
 }
 
 async function printRecipeDetails(i) {
-  let recipe = state[i];
+  let recipe = state.results[i];
   let result = document.querySelector("#recipe-container");
   
   let html = '';
@@ -262,7 +262,7 @@ async function showAllCategory (category) {
   html += `<div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`;
   page.innerHTML = html;
 
-  state = await filterByTags(category);
+  state = await filterByTags (category);
   console.log(state);
   if (state.count === 0) {
     page.innerHTML = `No results found for " ${category} "`;
@@ -281,4 +281,19 @@ function searchRecipes () {
   let searchKey = document.querySelector('#search').value;
   console.log(searchKey);
   showAll(searchKey);
+}
+
+function loadFilters (event) {
+    let region = event.target.innerHTML;
+    let filters = document.getElementById(region);
+    let list = document.querySelectorAll('.region');
+    for (let item of list) {
+      if (item.id == filters.id) {
+        item.style.display = 'flex';
+      }
+      else {
+        item.style.display = 'none';
+      }
+        
+    }
 }

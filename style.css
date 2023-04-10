@@ -470,43 +470,9 @@ main {
   text-decoration: none;
 }
 
-.recipe-details {
-  padding: 20px 20px 0 20px;
-}
-
-.recipe-details h3 {
-  color: #333333;
-  font-size: 22px;
-  line-height: 30px;
-  font-weight: bold;
-}
-
-.nosrecipe-detailstrud p {
-  padding: 10px 0 40px 0;
-  color: #272727;
-}
-
-.recipe-details .read_more {
-  margin: 0 auto;
-  display: block;
-  margin-bottom: -35px;
-}
-
-.read_more:hover {
+a#read_more:hover {
   background: #fdc001;
   color: #fff;
-}
-
-.text_align_left {
-  text-align: left;
-}
-
-.text_align_right {
-  text-align: right;
-}
-
-.text_align_center {
-  text-align: center;
 }
 
 .img_responsive {
@@ -649,6 +615,30 @@ main {
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 15px;
+}
+
+#regionFilters a {
+  font-size: 16px;
+  color: #fff;
+  max-width: 204px;
+  width: 100%;
+  background-color: #363636;
+  display: block;
+  height: 61px;
+  line-height: 61px;
+  text-align: center;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#regionFilters div {
+  display: none;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
 .lds-default {
