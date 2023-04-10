@@ -244,6 +244,55 @@ main section {
   background-color: red;
 }
 
+.dropdown {
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  color: #363636;
+  max-width: 204px;
+  width: 100%;
+  background-color: #fff;
+  height: 61px;
+  line-height: 61px;
+  text-align: center;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  font-size: 16px;
+  color: #363636;
+  max-width: 204px;
+  width: 100%;
+  background-color: #fff;
+  height: 61px;
+  line-height: 61px;
+  text-align: center;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+.dropdown:focus .dropdown-content {
+  display: block;
+  z-index: 10;
+}
+.dropdown-content a {
+  display: block;
+  color: #000000;
+  padding: 5px;
+  text-decoration: none;
+}
+.dropdown-content a:hover {
+  color: #FFFFFF;
+  background-color: #f6d0ff;
+}
+
 #search-bar {
   width: 100%;
   display: flex;
@@ -487,8 +536,7 @@ main {
   padding: 10px;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
@@ -528,16 +576,6 @@ main {
   text-align: center;
 }
 
-.recipeIngredientList * {
-  text-align: left;
-}
-
-.recipeIngredientList li {
-  list-style: none;
-  font-size: 17px;
-  padding-top: 5px;
-}
-
 .recipeTags {
   text-align: left;
 }
@@ -565,37 +603,52 @@ main {
 
 .recipeTags li {
   border: 2px solid;
+  cursor: pointer;
 }
 
-.recipeDietTags {
+.recipeTags li:hover {
+  zoom: 1.2;
+}
+
+.recipeTags .recipeDietTags {
   border-color: rgb(255, 135, 151);
 }
 
-.recipeOccasionTags {
+.recipeTags .recipeOccasionTags {
   border-color: rgb(0, 189, 179);
 }
 
-.recipeDifficultyTags {
+.recipeTags .recipeDifficultyTags {
   border-color: rgb(0, 128, 64);
 }
 
-.recipeRegionTags {
+.recipeTags .recipeRegionTags {
   border-color: rgb(170, 113, 224);
 }
 
 .contentContainerColumn2 {
   grid-column-start: 2;
+  text-align: justify;
+}
+
+.description-details {
+  font-size: 15px;
 }
 
 .contentContainerColumn2 ul {
   list-style: none;
 }
 
-.contentContainerColumn2 ul li {
-  list-style: none;
-  text-align: justify;
+.recipeIngredientList li {
+  list-style: circle;
+  font-size: 15px;
+  padding: 0;
+}
+
+.instruction-details li {
   padding-top: 10px;
   padding-bottom: 10px;
+  font-size: 15px;
 }
 
 .lds-default {

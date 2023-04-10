@@ -107,42 +107,12 @@ async function printRecipeDetails(i) {
   `
     <p id="ingredient-count"> </p>
       </div>
-      
-      <div class="recipeIngredientList">
-        <h2>Ingredients</h2>
   `;
-  
-  let list = recipe.sections;
-  count = 0;
-  for (let item of list) {
-    if (item.name != null) { //  displays ingredients section name
-      html += 
-      `
-      <h3>${item.name}</h3>
-      `;
-    }
-    
-    html +=
-    `
-    <ul>
-    `;
-
-    for (let ingredient of item.components) { 
-      count++;
-      html += `<li>${ingredient.raw_text}</li>`;
-    }
-    html+= 
-    `
-    </ul>
-    `;
-  }
-
-  html += 
+  html +=
   `
-    </div>
-  <div class="recipeTags">
-    <h3>Tags: </h3>
-      <ul class="tags">
+    <div class="recipeTags">
+      <h3>Tags: </h3>
+        <ul class="tags">
   `;
 
   let tagList = recipe.tags;
@@ -173,7 +143,8 @@ async function printRecipeDetails(i) {
   if (recipe.description === "") {
     html += 
     `
-      <p class="description-details">No Decription Available</p></div>
+        <p class="description-details">No Decription Available</p>
+      </div>
     `;
   }
   else {
@@ -183,6 +154,42 @@ async function printRecipeDetails(i) {
     </div>
     `;
   }
+
+  html +=
+  `    
+      <div class="recipeIngredientList">
+        <h2>Ingredients</h2>
+  `;
+  
+  let list = recipe.sections;
+  count = 0;
+  for (let item of list) {
+    if (item.name != null) { //  displays ingredients section name
+      html += 
+      `
+          <h3>${item.name}</h3>
+      `;
+    }
+    
+    html +=
+    `
+        <ul>
+    `;
+
+    for (let ingredient of item.components) { 
+      count++;
+      html += `     <li>${ingredient.raw_text}</li>`;
+    }
+    html+= 
+    `
+        </ul>
+    `;
+  }
+
+  html += 
+  `
+    </div>
+  `
 
   html +=
   `
@@ -217,20 +224,24 @@ async function searchRecipe (searchKey) {
   const response = await fetch(url, options);
   const data = await response.json();
   console.log(data);
-  return data.results;
+  return data;
 }
 
 async function showAll (key) {
   let page = document.querySelector('#recipe-list');
   html = '';
 
-  html += `<div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`;
-  page.innerHTML = html;
-  
+  page.innerHTML = `<div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`;
+
   state = await searchRecipe(key);
-  console.log("result...");
   console.log(state);
-  printRecipeList(state);
+
+  if (state.count === 0) {
+    page.innerHTML = `No results found for " ${key} "`;
+  }
+  else {
+    printRecipeList(state.results);
+  } 
 }
 
 async function filterByTags (category) {
@@ -241,23 +252,24 @@ async function filterByTags (category) {
   
   const response = await fetch(url, options);
   const data = await response.json();
-  return data.results;
+  return data;
 }
 
 async function showAllCategory (category) {
-  state = await filterByTags(category);
-  printRecipeList(state);
-}
+  let page = document.querySelector('#recipe-list');
+  html = '';
 
-async function filterByIngredient(ingredient) {
-  ingredient = ingredient.replace(' ',"%");
-  
-  let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=0&size=50');
-  url.searchParams.append('q',ingredient);
-  
-  const response = await fetch(url, options);
-  const data = await response.json();
-  console.log(data);
+  html += `<div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`;
+  page.innerHTML = html;
+
+  state = await filterByTags(category);
+  console.log(state);
+  if (state.count === 0) {
+    page.innerHTML = `No results found for " ${category} "`;
+  }
+  else {
+    printRecipeList(state.results);
+  }
 }
 
 function closeRecipe () {
