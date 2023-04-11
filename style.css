@@ -9,12 +9,10 @@
  scroll-behavior: smooth;
 }
 
-h1 {
-  font-size: 25px;
-  font-weight: bold;
-  text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
+html {
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 h2 {
@@ -88,11 +86,10 @@ body {
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  overflow: hidden;
 }
 
 .navbar ul li {
-  padding-right: 50px;
+  padding-left: 40px;
 }
 
 .navbar ul li a {
@@ -104,6 +101,10 @@ body {
 
 .navbar ul li a:hover {
   font-weight: bold;
+}
+
+.search img:hover {
+  zoom: 1.5;
 }
 
 .navbar ul li .active {
@@ -138,8 +139,8 @@ main section {
 }
 
 .banner {
-  width: 100%;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   padding-top: 20px;
   padding-bottom: 20px;
   background-repeat: no-repeat;
@@ -171,10 +172,6 @@ main section {
   background-image: url(img/region-banner.jpg);
 }
 
-.content *:not(#home-banner *) {
-  align-items: center;
-}
-
 .content {
   display: grid;
   width: 100%;
@@ -197,7 +194,7 @@ main section {
 
 .content .info h1 {
   color: white;
-  font-size: 100px;
+  font-size: 10vw;
   text-align: left;
   padding: 0;
 }
@@ -205,7 +202,7 @@ main section {
 .content .info h2 {
   color: white;
   font-size: 20px;
-  line-height: 2pc;
+  text-align: left;
   padding: 0;
 }
 
@@ -231,6 +228,10 @@ main section {
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
+}
+
+.content *:not(#home-banner *) {
+  align-items: center;
 }
 
 .filters {
@@ -405,10 +406,9 @@ footer .end {
 }
 
 footer .end span {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bold;
   color: #fac031;
-  border: 1px solid #fac031;
   padding: 5px;
 }
 
@@ -442,6 +442,7 @@ main {
   padding: 10px;
   box-shadow: 0 0 69px rgba(13, 3, 3, 0.06);
   margin-bottom: 55px;
+  max-width: 300px;
 }
 
 .recipe figure {
@@ -470,13 +471,9 @@ main {
   text-decoration: none;
 }
 
-a#read_more:hover {
+#read_more:hover {
   background: #fdc001;
   color: #fff;
-}
-
-.img_responsive {
-  max-width: 100%;
 }
 
 #recipe-details {
@@ -512,7 +509,7 @@ a#read_more:hover {
   padding-top: 20px;
   padding-bottom: 20px;
   margin-left: 5%;
-  margin-right: 5%;
+  margin-right: 10%;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
@@ -529,6 +526,8 @@ a#read_more:hover {
 
 .recipeImage img {
   width: 100%;
+  max-width: 300px;
+  object-fit: cover;
   border-radius: 10px;
 }
 
