@@ -1,7 +1,7 @@
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'f80a470c6emsh53ef212fefabc98p100ffajsn70d7de6039d4',
+		'X-RapidAPI-Key': 'e804863312mshc79f589bf0cd0e7p124003jsn2719cfeca0f8',
 		'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
 	}
 };
@@ -14,17 +14,10 @@ function printRecipeList(records) {
   html = '';
 
   count = 0;
-  i = 0;
+  
   for (let rec of records) {
     if (!(rec.hasOwnProperty('recipes'))) {
-      if (i%4  == 0) {
-        html += 
-        `
-        <div class="flex-row">
-        `;
-        div = i+4;
-      }
-
+      count++;
       html +=
       `
       <div class="col">
@@ -54,17 +47,7 @@ function printRecipeList(records) {
         </div>
       </div>
       `;
-      
-      i++;
-      
-      if (i == div) {
-        html += 
-        `
-        </div>
-        `;
-      }
     }
-    count++;
   }
 
   result.innerHTML = html;
