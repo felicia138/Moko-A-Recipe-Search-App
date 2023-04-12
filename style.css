@@ -368,29 +368,29 @@ main {
   overflow: hidden;
 }
 
-#random-recipes {
+.list {
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-#random-recipes h1 {
+.list h1 {
   font-size: 40px;
   padding-bottom: 20px;
 }
 
-#random-recipes h2 {
+.list h2 {
   font-size: 20px;
   padding-bottom: 20px;
 }
 
-.image {
+.list .image {
   display: block;
   width: 100%;
   height: 300px;
   object-fit: cover;
 }
 
-.recipe-details {
+.list .recipe-details {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -402,11 +402,11 @@ main {
   transition: .5s ease;
 }
 
-.col:hover .recipe-details {
+.list .col:hover .recipe-details {
   height: 400px;
 }
 
-.overlay {
+.list .recipe-details .overlay {
   color: white;
   font-size: 16px;
   position: absolute;
@@ -417,16 +417,21 @@ main {
   transform: translate(-50%, -50%);
 }
 
-.overlay .description {
-  text-align: justify;
+.list .overlay .description {
+  text-align: left;
   overflow: hidden;
 }
 
-#recipe-lotto {
+.list > div {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 10px;
+  margin-top: 50px;
 }
+
+/* main .list {
+  scroll-snap-type: x mandatory;scroll-snap-align: center;
+} */
 
 #recipe-list {
   display: grid;

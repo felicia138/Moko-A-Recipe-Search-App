@@ -10,7 +10,7 @@
   <script src="responsive.js"></script>
 </head>
 
-<body onload="loadHomePage()">
+<body id="homepage" onload="loadHomePage('random'); loadHomePage('pasta'); loadHomePage('dessert'); loadHomePage('salad');">
   <header class="header-area">
     <div class="container">
       <div class="logo">
@@ -33,7 +33,7 @@
       </div>
     </div>
   </header>
-  <main>
+  <main id="home"><!--onload="loadHomePage()"-->
     <section class="banner" id="home-banner">
       <div class="content">
           <div class="info">
@@ -44,10 +44,34 @@
           <a href="#random-recipes" id="browse">Browse</a>
         </div>
     </section>
-    <section id="random-recipes">
+    <section class="list" id="random-recipes">
       <h1>Recipe Lotto</h1>
       <h2>One of these recipes just might be your soulmate. Take a leap and enjoy !</h2>
-      <div id="recipe-lotto">
+      <div id="random" loadHomePage('random');>
+        
+      </div>
+    </section>
+
+    <section class="list" id="pasta-recipes">
+      <h1>Pasta</h1>
+      <h2>Life is about exploring pasta-bilities</h2>
+      <div id="pasta">
+        
+      </div>
+    </section>
+
+    <section class="list" id="dessert-recipes">
+      <h1>Desserts</h1>
+      <h2>The best things in life are sweet</h2>
+      <div id="dessert">
+        
+      </div>
+    </section>
+
+    <section class="list" id="salad-recipes">
+      <h1>Salad</h1>
+      <h2>Nothing taste as good as healthy</h2>
+      <div id="salad">
         
       </div>
     </section>

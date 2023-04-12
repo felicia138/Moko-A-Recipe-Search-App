@@ -4,7 +4,7 @@
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-    #recipe-lotto {
+    .list > div {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
@@ -80,7 +80,7 @@
         grid-template-columns: 1fr 1fr;
     }
 
-    #recipe-lotto {
+    .list > div {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
@@ -92,7 +92,7 @@
         grid-template-columns: 1fr;
     }
 
-    #recipe-lotto {
+    .list > div {
         display: grid;
         grid-template-columns: 1fr;
     }

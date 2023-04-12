@@ -286,7 +286,8 @@ function loadFilters (event) {
     }
 }
 
-async function randomRecipes () {
+async function randomRecipes (key) {
+
   let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20');
   
   const response = await fetch(url, options);
@@ -294,13 +295,20 @@ async function randomRecipes () {
   return data;
 }
 
-async function loadHomePage () {
+async function loadHomePage (key) {
+  console.log('hello');
 
-  state = await randomRecipes();
+  if (key === 'random')
+    state = await randomRecipes();
+  else
+    state = await searchRecipe(key);
+  
   recipes = state.results;
-  console.log(state);
+  console.log(recipes);
 
-  let result = document.querySelector("#recipe-lotto");
+  let result = document.getElementById(key);
+
+  console.log(result);
 
   html = '';
 
@@ -348,7 +356,7 @@ async function loadHomePage () {
       `;
     }
     i++;
-    if (count === 12)
+    if (count === 4)
         break;
   }
   result.innerHTML = html;
