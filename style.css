@@ -437,7 +437,7 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   box-sizing: border-box !important;
-  align-items: center;
+  align-items: stretch;
 }
 
 .col {
