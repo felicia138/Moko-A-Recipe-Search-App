@@ -286,6 +286,9 @@ function loadFilters (event) {
     }
 }
 
+let home = [];
+let i = 0;
+
 async function randomRecipes (key) {
 
   let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20');
@@ -299,11 +302,11 @@ async function loadHomePage (key) {
   console.log('hello');
 
   if (key === 'random')
-    state = await randomRecipes();
+    arr = await randomRecipes();
   else
-    state = await searchRecipe(key);
+    arr = await searchRecipe(key);
   
-  recipes = state.results;
+  recipes = arr.results;
   console.log(recipes);
 
   let result = document.getElementById(key);
@@ -318,10 +321,10 @@ async function loadHomePage (key) {
   html = '';
 
   count = 0;
-  i = 0;
   
   for (let rec of recipes) {
     if (!(rec.hasOwnProperty('recipes'))) {
+      state += rec;
       count++;
       html +=
       `
@@ -348,7 +351,7 @@ async function loadHomePage (key) {
 
       html +=
       `
-              <a href="#" id="read-more" onclick="printRecipeDetails(${i})">view</a>
+              <a href="#" id="read-more" onclick="printRecipeHome(${rec.id})">view</a>
             </div>
           </div>
         </div>
@@ -360,4 +363,156 @@ async function loadHomePage (key) {
         break;
   }
   result.innerHTML = html;
+}
+
+async function printRecipeHome(id) {
+
+  let url = new URL('https://tasty.p.rapidapi.com/recipes/get-more-info');
+  url.searchParams.append('id',id);
+  
+  const response = await fetch(url, options);
+  const recipe = await response.json();
+  console.log(recipe);
+  let result = document.querySelector("#recipe-container");
+  
+  let html = '';
+  html += 
+  `
+  <div class="contentContainerColumn1">
+      <div class="recipeImage"><img src="${recipe.thumbnail_url}"></div>
+      <div class="recipeName"><h1>${recipe.name}</h1></div>
+      
+      <div class="details">
+        <p>Servings: ${recipe.num_servings}</p>
+  `;
+  if (recipe.prep_time_minutes != null) {
+    html +=
+    `
+      <p>Prep: ${recipe.prep_time_minutes} minutes</p>
+    `;
+  }
+  if (recipe.cook_time_minutes != null) {
+    html +=
+    `
+    <p>Cook: ${recipe.cook_time_minutes} minutes</p>
+    `;
+  }
+  if (recipe.total_time_minutes != null) {
+    html +=
+    `
+      <p>Total: ${recipe.cook_time_minutes} minutes</p>
+    `;
+  }
+
+  html +=
+  `
+    <p id="ingredient-count"> </p>
+      </div>
+  `;
+  html +=
+  `
+    <div class="recipeTags">
+      <h2>Tags: </h2>
+        <ul class="tags">
+  `;
+
+  let tagList = recipe.tags;
+  //  displays relevant tags
+  for (let tag of tagList) {
+    if(tag.type === "dietary") {
+      html += `<li class="recipeDietTags">${tag.display_name}</li>`;  
+    }
+    if(tag.type === "holiday" || tag.type === "occasion" || tag.type === "meal")
+      html += `<li class="recipeOccasionTags">${tag.display_name}</li>`;
+    if(tag.type === "difficulty")
+      html += `<li class="recipeDifficultyTags">${tag.display_name}</li>`;
+    if(tag.type === "cuisine")
+      html += `<li class="recipeRegionTags">${tag.display_name}</li>`;
+  }
+
+  html += 
+  `
+        </ul>
+      </div>
+    </div>
+    <div class="contentContainerColumn2">
+      <div class="recipeDescription">
+        <h2 class="description-heading">Decription</h2>
+  `;
+
+
+  if (recipe.description === "" || recipe.description === null) {
+    html += 
+    `
+        <p class="description-details">No Decription Available</p>
+      </div>
+    `;
+  }
+  else {
+    html += 
+    `
+      <p class="description-details">${recipe.description}</p>
+    </div>
+    `;
+  }
+
+  html +=
+  `    
+      <div class="recipeIngredientList">
+        <h2>Ingredients</h2>
+  `;
+  
+  let list = recipe.sections;
+  count = 0;
+  for (let item of list) {
+    if (item.name != null) { //  displays ingredients section name
+      html += 
+      `
+          <h3>${item.name}</h3>
+      `;
+    }
+    
+    html +=
+    `
+        <ul>
+    `;
+
+    for (let ingredient of item.components) { 
+      count++;
+      if (ingredient.raw_text != 'n/a')
+        html += `     <li>${ingredient.raw_text}</li>`;
+      else
+      html += `     <li>${ingredient.ingredient.name} (${ingredient.extra_comment})</li>`;
+    }
+    html+= 
+    `
+        </ul>
+    `;
+  }
+
+  html += 
+  `
+    </div>
+  `
+
+  html +=
+  `
+  <div class="recipeInstructions">
+    <h2 class="instruction-heading">Instructions</h2>
+      <ul class="instruction-details">
+  `;
+
+  let instructions = recipe.instructions;
+  for (let step of instructions) {
+    html += `<li>${step.display_text}</li>`;
+  }
+  html += 
+  `
+  </ul>
+  </div>
+  `;
+
+  result.innerHTML = html;
+  document.getElementById('ingredient-count').innerHTML = `Ingredients: ${count}`;
+  result.parentElement.style.display = 'block';
 }
