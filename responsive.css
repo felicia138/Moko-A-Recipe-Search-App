@@ -3,6 +3,11 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+    #recipe-lotto {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
 @media screen and (max-width: 900px) and (min-width: 800px) {
@@ -74,10 +79,20 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+
+    #recipe-lotto {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media screen and (max-width: 500px) {
     #recipe-list {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    #recipe-lotto {
         display: grid;
         grid-template-columns: 1fr;
     }

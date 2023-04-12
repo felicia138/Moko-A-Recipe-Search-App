@@ -14,6 +14,7 @@ function printRecipeList(records) {
   html = '';
 
   count = 0;
+  i = 0;
   
   for (let rec of records) {
     if (!(rec.hasOwnProperty('recipes'))) {
@@ -42,12 +43,13 @@ function printRecipeList(records) {
       }
       html +=
       `
-            <a href="#" id="read-more" onclick="printRecipeDetails(${count})">view</a>
+            <a href="#" id="read-more" onclick="printRecipeDetails(${i})">view</a>
           </div>
         </div>
       </div>
       `;
     }
+    i++;
   }
 
   result.innerHTML = html;
@@ -94,7 +96,7 @@ async function printRecipeDetails(i) {
   html +=
   `
     <div class="recipeTags">
-      <h3>Tags: </h3>
+      <h2>Tags: </h2>
         <ul class="tags">
   `;
 
@@ -123,7 +125,7 @@ async function printRecipeDetails(i) {
   `;
 
 
-  if (recipe.description === "") {
+  if (recipe.description === "" || recipe.description === null) {
     html += 
     `
         <p class="description-details">No Decription Available</p>
@@ -161,7 +163,10 @@ async function printRecipeDetails(i) {
 
     for (let ingredient of item.components) { 
       count++;
-      html += `     <li>${ingredient.raw_text}</li>`;
+      if (ingredient.raw_text != 'n/a')
+        html += `     <li>${ingredient.raw_text}</li>`;
+      else
+      html += `     <li>${ingredient.ingredient.name} (${ingredient.extra_comment})</li>`;
     }
     html+= 
     `
@@ -279,4 +284,72 @@ function loadFilters (event) {
       }
         
     }
+}
+
+async function randomRecipes () {
+  let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20');
+  
+  const response = await fetch(url, options);
+  const data = await response.json();
+  return data;
+}
+
+async function loadHomePage () {
+
+  state = await randomRecipes();
+  recipes = state.results;
+  console.log(state);
+
+  let result = document.querySelector("#recipe-lotto");
+
+  html = '';
+
+  html += `<div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`;
+  result.innerHTML = html;
+
+  html = '';
+
+  count = 0;
+  i = 0;
+  
+  for (let rec of recipes) {
+    if (!(rec.hasOwnProperty('recipes'))) {
+      count++;
+      html +=
+      `
+      <div class="col">
+        <div class="recipe">
+          <img src="${rec.thumbnail_url}" alt="${rec.name}" class="image">
+          <div class="recipe-details">
+            <div class="overlay">
+              <h3>${rec.name}</h3>
+      `;
+
+      if (rec.prep_time_minutes != null) {
+        html +=
+        `
+              <p>Prep: ${rec.prep_time_minutes} minutes</p>
+        `;
+      }
+      if (rec.cook_time_minutes != null) {
+        html +=
+        `
+              <p>Cook: ${rec.cook_time_minutes} minutes</p>
+        `;
+      }
+
+      html +=
+      `
+              <a href="#" id="read-more" onclick="printRecipeDetails(${i})">view</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      `;
+    }
+    i++;
+    if (count === 12)
+        break;
+  }
+  result.innerHTML = html;
 }

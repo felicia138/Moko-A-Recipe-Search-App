@@ -13,7 +13,59 @@
   <script src="responsive.js"></script>
 </head>
 
-<body onload="showAllCategory('dinner')"><!---->
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+.col {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.recipe-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #00ba82;
+  overflow: hidden;
+  max-width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.col:hover .recipe-details {
+  height: 100%;
+}
+
+.overlay {
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: justify;
+  overflow: hidden;
+}
+</style>
+</head>
+
+
+<body>
   <header class="header-area">
     <div class="container">
       <div class="logo">
@@ -54,9 +106,23 @@
           </div>
         </div>
     </section>
+      
 
     <section id="recipe-list">
-        <div class="flex-row">
+
+      <div class="col">
+        <div class="recipe">
+          <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/432206.jpg" alt="Avatar" class="image">
+          <div class="recipe-details">
+            <div class="overlay">
+                <h3>Marry Me Chicken</h3>
+                <p>Prep: 10 minutes</p>
+                <p>Cook: 20 minutes</p>
+                <a href="#" id="read-more" onclick="printRecipeDetails(0)">view</a>
+            </div>
+          </div>
+        </div>
+      </div>
         
       <div class="col">
         <div class="recipe">
@@ -113,10 +179,6 @@
           </div>
         </div>
       </div>
-      
-        </div>
-        
-        <div class="flex-row">
         
       <div class="col">
         <div class="recipe">
@@ -173,10 +235,6 @@
           </div>
         </div>
       </div>
-      
-        </div>
-        
-        <div class="flex-row">
         
       <div class="col">
         <div class="recipe">
@@ -229,8 +287,6 @@
           </div>
         </div>
       </div>
-      
-        </div>
         
         <div class="flex-row">
         
@@ -436,7 +492,7 @@
       </div>
       </div></section>
 
-    <div id="recipe-details" style="display: block;">
+    <div id="recipe-details" style="display: none;">
       <span class="close" onclick="closeRecipe()">×</span>
       <div id="recipe-container">
         <div class="contentContainerColumn1">

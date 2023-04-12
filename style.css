@@ -368,10 +368,71 @@ main {
   overflow: hidden;
 }
 
+#random-recipes {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#random-recipes h1 {
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
+#random-recipes h2 {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.recipe-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #00ba82;
+  overflow: hidden;
+  max-width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.col:hover .recipe-details {
+  height: 400px;
+}
+
+.overlay {
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.overlay .description {
+  text-align: justify;
+  overflow: hidden;
+}
+
+#recipe-lotto {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 10px;
+}
+
 #recipe-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  
+  box-sizing: border-box !important;
+  align-items: center;
 }
 
 .col {
@@ -562,6 +623,15 @@ main {
   font-size: 15px;
 }
 
+.prompt {
+  text-align: center;
+  font-size: 2vw;
+}
+
+main .prompt {
+  padding-top: 50px;
+}
+
 #regionFilters a {
   font-size: 16px;
   color: #fff;
@@ -579,6 +649,10 @@ main {
   cursor: pointer;
 }
 
+#regionFilters a:hover {
+  background-color: #fdc001;
+}
+
 #regionFilters div {
   display: none;
   flex-wrap: wrap;
@@ -587,7 +661,8 @@ main {
 }
 
 .lds-default {
-  margin: auto;
+  display: inline-block;
+  margin: 50%;
   position: relative;
   width: 80px;
   height: 80px;

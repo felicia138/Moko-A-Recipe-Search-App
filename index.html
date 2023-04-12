@@ -10,7 +10,7 @@
   <script src="responsive.js"></script>
 </head>
 
-<body>
+<body onload="loadHomePage()">
   <header class="header-area">
     <div class="container">
       <div class="logo">
@@ -41,13 +41,23 @@
             <h2>Food may be essential as fuel for the body, but good food is fuel for the soul - Malcom Forbes</h2>
             <p>Set out on your next kitchen adventure !</p>
           </div>
-          <a href="#recipe-list" id="browse">Browse</a>
+          <a href="#random-recipes" id="browse">Browse</a>
         </div>
     </section>
-
-    <section id="recipe-list">
-
+    <section id="random-recipes">
+      <h1>Recipe Lotto</h1>
+      <h2>One of these recipes just might be your soulmate. Take a leap and enjoy !</h2>
+      <div id="recipe-lotto">
+        
+      </div>
     </section>
+
+    <div id="recipe-details">
+      <span class="close" onclick="closeRecipe()">&times;</span>
+      <div id="recipe-container">
+
+      </div>
+    </div>
   </main>
 
   <footer>
