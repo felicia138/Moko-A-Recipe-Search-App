@@ -171,6 +171,10 @@ main section {
   background-image: url(img/region-banner.jpg);
 }
 
+#search-banner {
+  background-image: url(img/search-banner.jpg);
+}
+
 .content {
   display: grid;
   width: 100%;
