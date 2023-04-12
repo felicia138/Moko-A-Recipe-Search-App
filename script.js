@@ -8,11 +8,11 @@ const options = {
 
 let state = [];
 
-function printRecipeList(records) {
+function printRecipeList(records, key) {
   let result = document.querySelector("#recipe-list");
 
   html = '';
-
+  html += `<p class="result">Showing results for " ${key} "</p>`;
   count = 0;
   i = 0;
   
@@ -51,8 +51,12 @@ function printRecipeList(records) {
     }
     i++;
   }
+  console.log(count);
 
-  result.innerHTML = html;
+  if (count === 0)
+    result.innerHTML = `<p class="result">No results found for " ${key} "</p>`;
+  else
+    result.innerHTML = html;
 }
 
 async function printRecipeDetails(i) {
@@ -228,7 +232,7 @@ async function showAll (key) {
     page.innerHTML = `No results found for " ${key} "`;
   }
   else {
-    printRecipeList(state.results);
+    printRecipeList(state.results, key);
   } 
 }
 
@@ -256,7 +260,7 @@ async function showAllCategory (category) {
     page.innerHTML = `No results found for " ${category} "`;
   }
   else {
-    printRecipeList(state.results);
+    printRecipeList(state.results, category);
   }
 }
 
@@ -276,7 +280,7 @@ function loadFilters (event) {
     let filters = document.getElementById(region);
     let list = document.querySelectorAll('.region');
     for (let item of list) {
-      if (item.id == filters.id) {
+      if (item.id === filters.id) {
         item.style.display = 'flex';
       }
       else {
@@ -482,7 +486,7 @@ async function printRecipeHome(id) {
       if (ingredient.raw_text != 'n/a')
         html += `     <li>${ingredient.raw_text}</li>`;
       else
-      html += `     <li>${ingredient.ingredient.name} (${ingredient.extra_comment})</li>`;
+        html += `     <li>${ingredient.ingredient.name} (${ingredient.extra_comment})</li>`;
     }
     html+= 
     `

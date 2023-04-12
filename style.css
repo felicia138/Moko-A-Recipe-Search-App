@@ -690,3 +690,11 @@ main .prompt {
     transform: scale(1.5);
   }
 }
+
+.result {
+  grid-column: 1 / -1;
+  padding: 5px;
+  font-weight: bold;
+  border: 2px black solid;
+  margin-bottom: 5%;
+}
