@@ -277,7 +277,7 @@ function closeRecipe () {
 }
 
 //  gets and prints recipes based on users input on search page
-function search () {
+function searchQuery () {
   let searchKey = document.querySelector('#search').value;
   console.log(searchKey);
   showAll(searchKey);
