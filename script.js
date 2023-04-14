@@ -330,7 +330,7 @@ async function loadHomePage (key) {
   result.innerHTML = html;
 
   html = '';
-
+  i = 0;
   count = 0;
   
   for (let rec of recipes) {
