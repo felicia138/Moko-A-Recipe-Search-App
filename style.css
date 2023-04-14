@@ -67,9 +67,10 @@ body {
   column-gap: 10px;
 }
 
-.logo-text {
+.logo-text a {
   font-size: 40px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .logo img {

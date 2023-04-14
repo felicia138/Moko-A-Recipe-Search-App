@@ -6,8 +6,10 @@ const options = {
 	}
 };
 
+//  global array for storing fetched data
 let state = [];
 
+//  prints list of recipes
 function printRecipeList(records, key) {
   let result = document.querySelector("#recipe-list");
 
@@ -17,7 +19,7 @@ function printRecipeList(records, key) {
   i = 0;
   
   for (let rec of records) {
-    if (!(rec.hasOwnProperty('recipes'))) {
+    if (!(rec.hasOwnProperty('recipes'))) {                 //  only prints responses that are recipes
       count++;
       html +=
       `
@@ -59,6 +61,7 @@ function printRecipeList(records, key) {
     result.innerHTML = html;
 }
 
+//  prints details of recipe based on index in global array
 async function printRecipeDetails(i) {
   let recipe = state.results[i];
   let result = document.querySelector("#recipe-container");
@@ -205,9 +208,8 @@ async function printRecipeDetails(i) {
   result.parentElement.style.display = 'block';
 }
 
-
+//  gets recipe data from API based on query
 async function searchRecipe (searchKey) {
-  console.log("searching...");
   searchKey = searchKey.replace(' ',"%");
   
   let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=0&size=50');
@@ -219,23 +221,25 @@ async function searchRecipe (searchKey) {
   return data;
 }
 
+//  gets and prints recipes based on key
 async function showAll (key) {
   let page = document.querySelector('#recipe-list');
   html = '';
-
+  //  prints loading symbol to screen
   page.innerHTML = `<div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`;
 
   state = await searchRecipe(key);
   console.log(state);
 
   if (state.count === 0) {
-    page.innerHTML = `No results found for " ${key} "`;
+    page.innerHTML = `<p class="result">No results found for " ${key} "</p>`;   // if 0 recipes are found
   }
   else {
-    printRecipeList(state.results, key);
+    printRecipeList(state.results, key);  //  otherwise print list of recipes
   } 
 }
 
+//  gets recipe data from API based on tag
 async function filterByTags (category) {
   category = category.replace(' ',"_");
   
@@ -247,6 +251,7 @@ async function filterByTags (category) {
   return data;
 }
 
+//  gets and prints list of recipes based on category
 async function showAllCategory (category) {
   let page = document.querySelector('#recipe-list');
   html = '';
@@ -256,25 +261,29 @@ async function showAllCategory (category) {
 
   state = await filterByTags (category);
   console.log(state);
+  
   if (state.count === 0) {
-    page.innerHTML = `No results found for " ${category} "`;
+    page.innerHTML = `<p class="result">No results found for " ${category} "</p>`;
   }
   else {
     printRecipeList(state.results, category);
   }
 }
 
+//  closes window with recipe details
 function closeRecipe () {
   let details = document.getElementById("recipe-container");
   details.parentElement.style.display = 'none';
 }
 
-function searchRecipes () {
+//  gets and prints recipes based on users input on search page
+function search () {
   let searchKey = document.querySelector('#search').value;
   console.log(searchKey);
   showAll(searchKey);
 }
 
+//  loads filter options based on region selected
 function loadFilters (event) {
     let region = event.target.innerHTML;
     let filters = document.getElementById(region);
@@ -290,9 +299,7 @@ function loadFilters (event) {
     }
 }
 
-let home = [];
-let i = 0;
-
+//  gets random recent recipes from API
 async function randomRecipes (key) {
 
   let url = new URL('https://tasty.p.rapidapi.com/recipes/list?from=0&size=20');
@@ -302,8 +309,8 @@ async function randomRecipes (key) {
   return data;
 }
 
+//  gets recipes to display on home page
 async function loadHomePage (key) {
-  console.log('hello');
 
   if (key === 'random')
     arr = await randomRecipes();
@@ -369,12 +376,13 @@ async function loadHomePage (key) {
   result.innerHTML = html;
 }
 
+//  prints details of recipes based on recipe id
 async function printRecipeHome(id) {
 
-  let url = new URL('https://tasty.p.rapidapi.com/recipes/get-more-info');
+  let url = new URL('https://tasty.p.rapidapi.com/recipes/get-more-info');  
   url.searchParams.append('id',id);
   
-  const response = await fetch(url, options);
+  const response = await fetch(url, options); //  gets info from API
   const recipe = await response.json();
   console.log(recipe);
   let result = document.querySelector("#recipe-container");
